@@ -3,7 +3,7 @@
 $database = array(
 	'host' => '',
 	'database' => '',
-	'users' => aray(
+	'users' => array(
 		'mitarbeiter' => array(
 			'username' => '',
 			'password' => ''
