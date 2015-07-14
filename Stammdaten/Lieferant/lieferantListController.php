@@ -1,27 +1,17 @@
 <?php 
 
-$supplier=array(
-  array(
-	'Name' => 'Inder',
-	'Strasse' => 'Obstgarten',
-	'Hausnr' => '27',
-	'Ort' => 'Schlawineshausen',
-	'PLZ' => '90545',
-	'Email' => 'info@uuu.de',
-	'Telefon' => '09123478',
-	'Notiz' => 'asdklasd'),
-	
-  array(
-	'Name' => 'UFO',
-	'Strasse' => 'Karten',
-	'Hausnr' => '77',
-	'Ort' => 'Haup',
-	'PLZ' => '94445',
-	'Email' => 'info@kkk.de',
-	'Telefon' => '091531478',
-	'Notiz' => 'asdklasd'),
-	);
-	
+$root = '..';
+require_once($root . '/config/config.php');
+require_once($root . '/core/mysql.php');
+require_once($root . '/core/models/suppliers.php');
+
+
+
+$supplier = new Model_Suppliers();
+
+
+$db = getMysqlConnection();
+$supplier = $supplier::getAllSuppliers($db);
 
 $view = array(
   'supplier' => $supplier

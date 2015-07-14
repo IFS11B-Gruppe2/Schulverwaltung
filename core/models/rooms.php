@@ -1,12 +1,15 @@
 <?php
 
 class Model_Rooms {
-	function getAllRooms($db, $orderBy = 'PK_Raumnr') {
+	static function getAllRooms($db, $orderBy = 'r.PK_Raumnr') {
 		$mysqlResult = null;
 		$rooms = array();
 		$sql = '
-			SELECT *
-			FROM raum
+			SELECT r.PK_Raumnr, r.Stockwerk, r.Notiz, count(k.PK_ID) as pc_anzahl
+			FROM raum as r, komponente as k
+			WHERE r.PK_Raumnr = k.FK_Raum
+			AND k.FK_Komponentenart = 19
+			GROUP BY r.PK_Raumnr
 			ORDER BY ' . $orderBy . '
 		';
 

@@ -34,6 +34,7 @@
 
 <?php foreach($view['rooms'] as $index => $row): ?>
 <tr>
+<?php $row['PK_Raumnr']=str_pad($row['PK_Raumnr'],3,"0",STR_PAD_LEFT); ?>
 	<td width="120"> <?= $row['PK_Raumnr'] ?> </td>
 	<td width="120"> <?= $row['pc_anzahl'] ?> </td>
 	<td width="120"> <?= $row['drucker_anzahl'] ?> </td>

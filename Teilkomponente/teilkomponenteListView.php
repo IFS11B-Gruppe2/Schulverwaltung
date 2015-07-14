@@ -50,12 +50,19 @@
 <tr>
 	<td width="120"> <?= $row['Beschreibung'] ?> </td>
 	<td width="120"> <?= $row['Beschreibung'] ?> </td>
-	<td width="120"> <?= $row['Ausgelagert'] ?> </td>
-	<td width="120"> <?= $row['FK_Komponentenart'] ?> </td>
+	<td width="120">
+		<?php if ($row['FK_Raum']=='0'): ?>
+			Ja
+		<?php else: ?>
+			Nein
+		<?php endif; ?>
+	</td>
+	<td width="120"> <?= $row['Komponentenart'] ?> </td>
+		
 	<td width="120"> <?= $row['Ablaufdatum'] ?> </td>
 	<td width="120"> <?= $row['Einkaufsdatum'] ?> </td>
 	<td width="120"> <?= $row['Hersteller'] ?> </td>
-	<td width="120"> <?= $row['FK_Lieferant'] ?> </td>
+	<td width="120"> <?= $row['Name'] ?> </td>
 	<td width="120"> <?= $row['Notiz'] ?> </td>
 </tr>
 <?php endforeach; ?>
