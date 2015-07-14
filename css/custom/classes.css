@@ -1,7 +1,7 @@
 /* TABLE DATA */
 table.data {
 	border: 1px solid black;
-	margin: 0 auto;
+	margin: 16px auto;
 	width: 99%;
 }
 table.data td,
@@ -9,11 +9,11 @@ table.data th {
 	padding: 4px;
 }
 table.data th {
-	background-color: #ddeded;
+	background-color: #bbcbcb;
 	text-align: left;
 }
 
 /* TABLE EVEN ROWS */
 table.evenRows tr:nth-child(odd) {
-	background-color: #f0fafa;
+	background-color: #e0f0f0;
 }
