@@ -1,16 +1,16 @@
 <?php
 
 $database = array(
-	'host' => '',
-	'database' => '',
+	'host' => 'localhost',
+	'database' => 'stammdatenverwaltung',
 	'users' => array(
 		'employee' => array(
-			'username' => '',
-			'password' => ''
+			'username' => 'M1t4rb31t3r',
+			'password' => 'n3D5Lp6Yq9KxYd7B'
 		),
 		'systemadmin' => array(
-			'username' => '',
-			'password' => ''
+			'username' => 'Syst3m4dm1n',
+			'password' => 'pnQxQRxdtQcFRK2r'
 		)
 	)
 );

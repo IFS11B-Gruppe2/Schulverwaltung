@@ -1,0 +1,19 @@
+/* TABLE DATA */
+table.data {
+	border: 1px solid black;
+	margin: 0 auto;
+	width: 99%;
+}
+table.data td,
+table.data th {
+	padding: 4px;
+}
+table.data th {
+	background-color: #ddeded;
+	text-align: left;
+}
+
+/* TABLE EVEN ROWS */
+table.evenRows tr:nth-child(odd) {
+	background-color: #f0fafa;
+}
