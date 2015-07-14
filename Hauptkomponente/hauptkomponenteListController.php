@@ -1,10 +1,10 @@
-<?php 
+<?php
 
 
 $root = '..';
 require_once($root . '/config/config.php');
 require_once($root . '/core/mysql.php');
-require_once($root . '/core/models/maincomponents.php');
+require_once($root . '/core/models/maincomponentsModel.php');
 
 
 
