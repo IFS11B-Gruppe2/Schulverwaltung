@@ -19,5 +19,5 @@ $view = array(
 );
 
 
-require_once($root . '/views/rooms/roomListView.php');
+require_once($root . '/views/rooms/roomsListView.php');
 ?>
