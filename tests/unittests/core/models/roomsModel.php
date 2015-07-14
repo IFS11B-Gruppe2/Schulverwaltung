@@ -3,7 +3,7 @@
 $root = '../../../..';
 require_once($root . '/config/config.php');
 require_once($root . '/core/mysql.php');
-require_once($root . '/core/models/rooms.php');
+require_once($root . '/core/models/roomsModel.php');
 
 
 // Test creation
@@ -42,3 +42,5 @@ if ($varType === 'array') {
 		</p>
 	';
 }
+
+var_dump($rooms);
