@@ -24,35 +24,34 @@
 </table>
 
 
-<table width="100%" border="true">
+<table class="data evenRows">
+	<tr>
+		<th> Raum </th>
+		<th> PC Anzahl </th>
+		<th> Drucker Anzahl </th>
+		<th> Beamer Anzahl </th>
+		<th> Stockwerk </th>
+		<th> IP Adressbereich </th>
+		<th> Notiz </th>
+	</tr>
 
-<tr>
-<td width="120">Raum </td>
-<td width="120">PC Anzahl </td>
-<td width="120">Drucker Anzahl </td>
-<td width="120">Beamer Anzahl </td>
-<td width="120">Stockwerk </td>
-<td width="120">IP Adressbereich</td>
-<td width="120">Notiz </td>
-</tr>
+	<?php foreach($view['rooms'] as $index => $row): ?>
+	<tr>
+		<td> <?= str_pad($row['PK_Raumnr'], 3, "0", STR_PAD_LEFT) ?> </td>
+		<td> <?= $row['pc_anzahl'] ?> </td>
+		<td> <?= $row['drucker_anzahl'] ?> </td>
+		<td> <?= $row['beamer_anzahl'] ?> </td>
+		<td> <?= $row['Stockwerk'] ?> </td>
+		<td> <?= $row['ip_adress'] ?> </td>
+		<td> <?= $row['Notiz'] ?> </td>
+	</tr>
+	<?php endforeach; ?>
 
-
-<?php foreach($view['rooms'] as $index => $row): ?>
-<tr>
-<?php $row['PK_Raumnr']=str_pad($row['PK_Raumnr'],3,"0",STR_PAD_LEFT); ?>
-	<td width="120"> <?= $row['PK_Raumnr'] ?> </td>
-	<td width="120"> <?= $row['pc_anzahl'] ?> </td>
-	<td width="120"> <?= $row['drucker_anzahl'] ?> </td>
-	<td width="120"> <?= $row['beamer_anzahl'] ?> </td>
-	<td width="120"> <?= $row['Stockwerk'] ?> </td>
-	<td width="120"> <?= $row['ip_adress'] ?> </td>
-	<td width="120"> <?= $row['Notiz'] ?> </td>
-</tr>
-<?php endforeach; ?>
-
-<tr>
-<td colspan="7" align="right"><input type="submit" name="neu" value="Neu"></td>
-</tr>
+	<tr>
+		<td colspan="7" align="right">
+			<input type="submit" name="neu" value="Neu">
+		</td>
+	</tr>
 </table>
 
 </body>

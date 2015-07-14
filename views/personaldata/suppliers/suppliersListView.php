@@ -3,6 +3,11 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Document</title>
+
+	<base href="http://localhost/Schulverwaltung/" />
+
+	<link rel="stylesheet" type="text/css" href="css/libs/normalize-3.0.2.css" />
+	<link rel="stylesheet" type="text/css" href="css/custom/classes.css" />
 </head>
 <body>
 
@@ -19,47 +24,47 @@
 
 
 
-<table width="100%" border="true">
+<table class="data evenRows">
 
-<tr>
-<td width="120"> <input type="text" name="lieferant"> </td>
-<td width="140"> <input type="text" name="anschrift" > </td>
-<td width="100"> <input type="text" name="ort" > </td>
-<td width="70"> <input type="text" name="plz" > </td>
-<td width="120"> <input type="text" name="email" > </td>
-<td width="120"> <input type="text" name="telefon" > </td>
-<td> <input type="text" name="notiz"></td>
-<td> <input type="submit" name="suchen" value="Suchen"></td>
-</tr>
-<tr>
-<td width="120">Lieferant </td>
-<td width="140">Anschrift </td>
-<td width="100">Ort </td>
-<td width="70">PLZ </td>
-<td width="120">E-mail </td>
-<td width="120">Telefon </td>
-<td> Notiz </td>
-</tr>
+	<tr>
+		<td> <input type="text" name="lieferant"> </td>
+		<td> <input type="text" name="anschrift" > </td>
+		<td> <input type="text" name="ort"> </td>
+		<td> <input type="text" name="plz"> </td>
+		<td> <input type="text" name="email"> </td>
+		<td> <input type="text" name="telefon"> </td>
+		<td> <input type="text" name="notiz"> </td>
+		<td> <input type="submit" name="suchen" value="Suchen"> </td>
+	</tr>
 
-<?php foreach($view['supplier'] as $index => $row): ?>
-<tr>
-	<td width="120"> <?= $row['Name'] ?> </td>
-	<td width="120"> <?= $row['Strasse'] .' '. $row['Hausnr'] ?> </td>
-	<td width="120"> <?= $row['Ort'] ?> </td>
-	<td width="120"> <?= $row['PLZ'] ?> </td>
-	<td width="120"> <?= $row['Email'] ?> </td>
-	<td width="120"> <?= $row['Telefon'] ?> </td>
-	<td width="120"> <?= $row['Notiz'] ?> </td>
-</tr>
-<?php endforeach; ?>
+	<tr>
+		<th> Lieferant </th>
+		<th> Anschrift </th>
+		<th> Ort </th>
+		<th> PLZ </th>
+		<th> E-mail </th>
+		<th> Telefon </th>
+		<th> Notiz </th>
+	</tr>
 
+	<?php foreach($view['supplier'] as $index => $row): ?>
+	<tr>
+		<td> <?= $row['Name'] ?> </td>
+		<td> <?= $row['Strasse'] .' '. $row['Hausnr'] ?> </td>
+		<td> <?= $row['Ort'] ?> </td>
+		<td> <?= $row['PLZ'] ?> </td>
+		<td> <?= $row['Email'] ?> </td>
+		<td> <?= $row['Telefon'] ?> </td>
+		<td> <?= $row['Notiz'] ?> </td>
+	</tr>
+	<?php endforeach; ?>
 
-<tr>
-
-<td colspan="8" align="right"><input type="submit" name="neu" value="Neu"></td>
-</tr>
-
+	<tr>
+		<td colspan="8" align="right">
+			<input type="submit" name="neu" value="Neu">
+		</td>
+	</tr>
 </table>
-	
+
 </body>
 </html>

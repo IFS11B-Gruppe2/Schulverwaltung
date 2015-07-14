@@ -3,6 +3,11 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Document</title>
+
+	<base href="http://localhost/Schulverwaltung/" />
+
+	<link rel="stylesheet" type="text/css" href="css/libs/normalize-3.0.2.css" />
+	<link rel="stylesheet" type="text/css" href="css/custom/classes.css" />
 </head>
 <body>
 
@@ -19,26 +24,25 @@
 </table>
 
 
-<table width="100%" border="true">
+<table class="data evenRows">
+	<tr>
+		<th> Benutzer </th>
+		<th> Benutzergruppe </th>
+	</tr>
 
-<tr>
-<td width="50%">Benutzer </td>
-<td width="50%">Benutzergruppe </td>
-</tr>
+	<?php foreach($view['user'] as $index => $row): ?>
+	<tr>
+		<td> <?= $row['Name'] ?> </td>
+		<td> <?= $row['Gruppe'] ?> </td>
+	</tr>
+	<?php endforeach; ?>
 
-<?php foreach($view['user'] as $index => $row): ?>
-<tr>
-	<td width="120"> <?= $row['Name'] ?> </td>
-	<td width="120"> <?= $row['Gruppe'] ?> </td>
-</tr>
-<?php endforeach; ?>
-
-<tr>
-
-<td colspan="7" align="right"><input type="submit" name="neu" value="Neu"></td>
-</tr>
-
+	<tr>
+		<td colspan="2" align="right">
+			<input type="submit" name="neu" value="Neu">
+		</td>
+	</tr>
 </table>
-	
+
 </body>
 </html>
