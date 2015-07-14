@@ -4,13 +4,19 @@ $database = array(
 	'host' => '',
 	'database' => '',
 	'users' => array(
-		'mitarbeiter' => array(
+		'employee' => array(
 			'username' => '',
 			'password' => ''
 		),
-		'systembetreuer' => array(
+		'systemadmin' => array(
 			'username' => '',
 			'password' => ''
 		)
 	)
+);
+
+
+// public access
+$CONFIG = array(
+	'database' => $database
 );
