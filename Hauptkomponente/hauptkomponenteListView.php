@@ -51,11 +51,12 @@
 	<td width="120"> <?= $row['Beschreibung'] ?> </td>
 	<td width="120"> <?= $row['Seriennummer'] ?> </td>
 	<td width="120"> <?= $row['Ablaufdatum'] ?> </td>
-	<td width="120"> <?= $row['FK_Komponentenart'] ?> </td>
+	<td width="120"> <?= $row['Komponentenart'] ?> </td>
+	<?php $row['FK_Raum']=str_pad($row['FK_Raum'],3,"0",STR_PAD_LEFT); ?>
 	<td width="120"> <?= $row['FK_Raum'] ?> </td>
 	<td width="120"> <?= $row['Einkaufsdatum'] ?> </td>
 	<td width="120"> <?= $row['Hersteller'] ?> </td>
-	<td width="120"> <?= $row['FK_Lieferant'] ?> </td>
+	<td width="120"> <?= $row['Name'] ?> </td>
 	<td width="120"> <?= $row['Notiz'] ?> </td>
 </tr>
 <?php endforeach; ?>
