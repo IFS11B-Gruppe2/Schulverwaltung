@@ -1,3 +1,32 @@
+/* MAIN MENU */
+nav.mainMenu {
+	margin: 16px auto;
+	width: 99%;
+}
+nav.mainMenu a {
+	border-style: solid;
+	border-width: 1px;
+	font-weight: bold;
+	margin: 6px;
+	opacity: 0.6;
+	padding: 6px;
+	text-decoration: none;
+}
+nav.mainMenu a.selected {
+	opacity: 1;
+	text-decoration: underline;
+}
+nav.mainMenu a.blueButton {
+	background-color: #5B74A8;
+	border-color: #29447e #29447e #1a356e;
+	color: #ffffff;
+}
+nav.mainMenu a.redButton {
+	background-color: #980905;
+	border-color: #29447e #29447e #1a356e;
+	color: #ffffff;
+}
+
 /* TABLE DATA */
 table.data {
 	border: 1px solid black;
