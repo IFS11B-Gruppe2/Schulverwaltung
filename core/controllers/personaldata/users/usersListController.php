@@ -1,6 +1,6 @@
 <?php
 
-$root = '../..';
+$root = '../../../..';
 $user=array(
 	array(
 		'Name' => 'Klaus',

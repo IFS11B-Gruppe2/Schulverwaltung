@@ -1,6 +1,6 @@
 <?php
 
-$root = '..';
+$root = '../../..';
 require_once($root . '/config/config.php');
 require_once($root . '/core/mysql.php');
 require_once($root . '/core/models/subcomponentsModel.php');
