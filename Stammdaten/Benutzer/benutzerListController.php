@@ -1,5 +1,6 @@
-<?php 
+<?php
 
+$root = '../..';
 $user=array(
 	array(
 		'Name' => 'Klaus',
@@ -7,8 +8,8 @@ $user=array(
 	array(
 		'Name' => 'Hans',
 		'Gruppe' => 'Mitarbeiter'),
-		
-	
+
+
 	);
 
 $view = array(
@@ -16,5 +17,5 @@ $view = array(
 );
 
 
-require_once('benutzerListView.php');
+require_once($root . '/views/personaldata/users/usersListView.php');
 ?>

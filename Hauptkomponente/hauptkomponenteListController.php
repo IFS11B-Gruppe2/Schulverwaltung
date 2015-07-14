@@ -21,5 +21,5 @@ $view = array(
 );
 
 
-require_once('hauptkomponenteListView.php');
+require_once($root . '/views/maincomponents/maincomponentsListView.php');
 ?>

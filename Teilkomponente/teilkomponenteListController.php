@@ -18,5 +18,5 @@ $view = array(
 );
 
 
-require_once('teilkomponenteListView.php');
+require_once($root . '/views/subcomponents/subcomponentsListView.php');
 ?>

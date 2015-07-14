@@ -18,5 +18,5 @@ $view = array(
 );
 
 
-require_once('lieferantListView.php');
+require_once($root . '/views/personaldata/suppliers/suppliersListView.php');
 ?>
