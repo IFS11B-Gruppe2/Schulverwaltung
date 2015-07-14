@@ -14,7 +14,8 @@ $db = getMysqlConnection();
 $supplier = $supplier::getAllSuppliers($db);
 
 $view = array(
-  'supplier' => $supplier
+  'supplier' => $supplier,
+  'rootPath' => $root
 );
 
 

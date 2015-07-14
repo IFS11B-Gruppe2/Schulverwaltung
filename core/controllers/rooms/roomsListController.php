@@ -15,7 +15,8 @@ $db = getMysqlConnection();
 $rooms = $Rooms::getAllRooms($db);
 
 $view = array(
-  'rooms' => $rooms
+  'rooms' => $rooms,
+  'rootPath' => $root
 );
 
 

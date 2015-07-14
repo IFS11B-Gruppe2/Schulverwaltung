@@ -11,18 +11,7 @@
 </head>
 <body>
 
-
-<table width="100%" border="true">
-<tr>
-<td width="23%" >Räume </td>
-<td width="23%" >Hauptkomponenten </td>
-<td width="23%" >Teilkomponenten </td>
-<td width="23%" >Stammdaten </td>
-<td>Logout </td>
-
-
-</table>
-
+<?php require_once($view['rootPath'] . '/views/menu.php'); ?>
 
 <table class="data evenRows">
 	<tr>

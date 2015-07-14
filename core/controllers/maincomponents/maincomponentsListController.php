@@ -17,7 +17,8 @@ $maincomponent = $maincomponent::getAllMaincomponents($db);
 
 
 $view = array(
-  'maincomponent' => $maincomponent
+  'maincomponent' => $maincomponent,
+  'rootPath' => $root
 );
 
 

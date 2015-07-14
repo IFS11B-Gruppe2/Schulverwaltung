@@ -13,7 +13,8 @@ $user=array(
 	);
 
 $view = array(
-  'user' => $user
+  'user' => $user,
+  'rootPath' => $root
 );
 
 

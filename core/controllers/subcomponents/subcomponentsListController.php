@@ -14,7 +14,8 @@ $db = getMysqlConnection();
 $subcomponent = $subcomponent::getAllSubcomponents($db);
 
 $view = array(
-  'component' => $subcomponent
+  'component' => $subcomponent,
+  'rootPath' => $root
 );
 
 
