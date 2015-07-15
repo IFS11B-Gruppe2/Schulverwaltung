@@ -1,5 +1,15 @@
 <?php
 
+$ENV = 'PROD'; # PROD | DEV
+
+if ($ENV == 'PROD') {
+	$webProtocol = 'https://';
+	$webHost = '192.168.20.1';
+} else {
+	$webProtocol = 'http://';
+	$webHost = 'localhost/Schulverwaltung';
+}
+
 $database = array(
 	'host' => 'localhost',
 	'database' => 'stammdatenverwaltung',
