@@ -20,6 +20,11 @@
 	text-align: center;
 }
 
+/* FIT INPUT */
+input.fit {
+	width: 99%;
+}
+
 /* LOGO */
 img.logo {
 	display: inline-block;

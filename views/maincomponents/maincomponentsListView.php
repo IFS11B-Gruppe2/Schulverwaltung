@@ -15,16 +15,16 @@
 <form action="" method="POST">
 <table class="data evenRows">
 	<tr>
-		<td> <input type="text" name="bescheibung"> </td>
-		<td> <input type="text" name="seriennummer"> </td>
-		<td> <input type="text" name="ablaufdatum"> </td>
-		<td> <input type="text" name="komponentenart"> </td>
-		<td> <input type="text" name="raum"> </td>
-		<td> <input type="text" name="einkaufdatum"> </td>
-		<td> <input type="text" name="hersteller"> </td>
-		<td> <input type="text" name="lieferant"> </td>
-		<td> <input type="text" name="notiz"> </td>
-		<td> <input type="submit" name="suchen" value="Suchen"> </td>
+		<td> <input type="text" class="fit" name="txtDescription" /> </td>
+		<td> <input type="text" class="fit" name="seriennummer" /> </td>
+		<td> <input type="text" class="fit" name="ablaufdatum" /> </td>
+		<td> <input type="text" class="fit" name="komponentenart" /> </td>
+		<td> <input type="text" class="fit" name="raum" /> </td>
+		<td> <input type="text" class="fit" name="einkaufdatum" /> </td>
+		<td> <input type="text" class="fit" name="hersteller" /> </td>
+		<td> <input type="text" class="fit" name="lieferant" /> </td>
+		<td> <input type="text" class="fit" name="notiz" /> </td>
+		<td> <input type="submit" name="suchen" value="Suchen" /> </td>
 	</tr>
 
 	<tr>
@@ -36,7 +36,7 @@
 		<th> Einkaufdatum </th>
 		<th> Hersteller </th>
 		<th> Lieferant </th>
-		<th> Notiz </th>
+		<th colspan="2"> Notiz </th>
 	</tr>
 
 	<?php foreach($view['maincomponent'] as $index => $row): ?>
@@ -49,12 +49,12 @@
 		<td> <?= $row['Einkaufsdatum'] ?> </td>
 		<td> <?= $row['Hersteller'] ?> </td>
 		<td> <?= $row['Name'] ?> </td>
-		<td> <?= $row['Notiz'] ?> </td>
+		<td colspan="2"> <?= $row['Notiz'] ?> </td>
 	</tr>
 	<?php endforeach; ?>
 
 	<tr>
-		<td colspan="11" class="centerText">
+		<td colspan="10" class="centerText">
 			<a class="actionButton" href="core/controllers/maincomponents/maincomponentsFormController.php">Neu</a>
 		</td>
 	</tr>

@@ -14,18 +14,6 @@
 <?php require_once($view['rootPath'] . '/views/menu.php'); ?>
 
 <table class="data evenRows">
-
-	<tr>
-		<td> <input type="text" name="lieferant"> </td>
-		<td> <input type="text" name="anschrift" > </td>
-		<td> <input type="text" name="ort"> </td>
-		<td> <input type="text" name="plz"> </td>
-		<td> <input type="text" name="email"> </td>
-		<td> <input type="text" name="telefon"> </td>
-		<td> <input type="text" name="notiz"> </td>
-		<td> <input type="submit" name="suchen" value="Suchen"> </td>
-	</tr>
-
 	<tr>
 		<th> Lieferant </th>
 		<th> Anschrift </th>
@@ -49,7 +37,7 @@
 	<?php endforeach; ?>
 
 	<tr>
-		<td colspan="8" class="centerText">
+		<td colspan="7" class="centerText">
 			<a class="actionButton" href="core/controllers/personaldata/suppliers/suppliersFormController.php">Neu</a>
 		</td>
 	</tr>
