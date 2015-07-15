@@ -14,7 +14,7 @@ $database = array(
 	'host' => 'localhost',
 	'database' => 'stammdatenverwaltung',
 	'users' => array(
-		'employee' => array(
+		'user' => array(
 			'username' => 'M1t4rb31t3r',
 			'password' => 'n3D5Lp6Yq9KxYd7B'
 		),

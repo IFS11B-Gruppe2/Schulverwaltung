@@ -1,7 +1,7 @@
 <?php
 
 // TODO
-function getMysqlConnection($group = 'employee') {
+function getMysqlConnection($group = 'user') {
 	global $CONFIG;
 
 	$host = $CONFIG['database']['host'];
