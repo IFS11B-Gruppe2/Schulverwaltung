@@ -4,7 +4,7 @@ $ENV = 'PROD'; # PROD | DEV
 
 if ($ENV == 'PROD') {
 	$webProtocol = 'https://';
-	$webHost = 'schulverwaltung.mertinsegitz.org';
+	$webHost = 'schulverwaltung.martinsegitz.org';
 } else {
 	$webProtocol = 'http://';
 	$webHost = 'localhost/Schulverwaltung';
