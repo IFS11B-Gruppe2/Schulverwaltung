@@ -3,11 +3,9 @@
 $ENV = 'PROD'; # PROD | DEV
 
 if ($ENV == 'PROD') {
-	$webProtocol = 'https://';
-	$webHost = 'schulverwaltung.martinsegitz.org';
+	$webHost = 'https://schulverwaltung.martinsegitz.org';
 } else {
-	$webProtocol = 'http://';
-	$webHost = 'localhost/Schulverwaltung';
+	$webHost = 'http://localhost/Schulverwaltung';
 }
 
 $database = array(
@@ -28,5 +26,6 @@ $database = array(
 
 // public access
 $CONFIG = array(
-	'database' => $database
+	'database' => $database,
+	'webHost' => $webHost,
 );
