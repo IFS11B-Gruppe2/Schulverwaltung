@@ -12,7 +12,7 @@
 <body>
 
 <?php require_once($view['rootPath'] . '/views/menu.php'); ?>
-
+<form action="" method="POST">
 <table class="data evenRows">
 	<tr>
 		<th> Benutzer </th>
@@ -21,17 +21,27 @@
 
 	<?php foreach($view['user'] as $index => $row): ?>
 	<tr>
-		<td> <?= $row['Name'] ?> </td>
-		<td> <?= $row['Gruppe'] ?> </td>
+		<td> <?= $row['username'] ?> </td>
+		<td> 
+		<?php
+		if($row['FK_Group']=='1')
+		{
+			echo "Administrator";
+		}else if($row['FK_Group']=='2')
+		{
+			echo "Mitarbeiter";
+		}
+		?>
+		</td>
 	</tr>
 	<?php endforeach; ?>
 
 	<tr>
 		<td colspan="2" align="right">
-			<input type="submit" name="neu" value="Neu">
+			<a href="core/controllers/personaldata/users/usersFormController.php">Neu</a>
 		</td>
 	</tr>
 </table>
-
+</form>
 </body>
 </html>

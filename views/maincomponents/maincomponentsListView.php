@@ -12,7 +12,7 @@
 <body>
 
 <?php require_once($view['rootPath'] . '/views/menu.php'); ?>
-
+<form action="" method="POST">
 <table class="data evenRows">
 	<tr>
 		<td> <input type="text" name="bescheibung"> </td>
@@ -55,10 +55,10 @@
 
 	<tr>
 		<td colspan="11" align="right">
-			<input type="submit" name="neu" value="Neu">
+			<a href="core/controllers/maincomponents/maincomponentsFormController.php">Neu</a>
 		</td>
 	</tr>
 </table>
-
+</form>
 </body>
 </html>
