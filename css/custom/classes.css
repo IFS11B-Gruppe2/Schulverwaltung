@@ -17,7 +17,7 @@
 
 /* CENTER TEXT */
 .centerText {
-	text-align: center;
+	text-align: center!important;
 }
 
 /* FIT INPUT */
@@ -88,4 +88,18 @@ table.evenRows tr:nth-child(odd) {
 	background-color: #e0f0f0;
 }
 
-
+/* TABLE FORM */
+table.form {
+	border: 1px solid black;
+	margin: 16px auto;
+	width: 99%;
+}
+table.form td {
+	padding: 4px;
+}
+table.form td:first-child {
+	text-align: right;
+}
+table.form td:last-child {
+	text-align: left;
+}

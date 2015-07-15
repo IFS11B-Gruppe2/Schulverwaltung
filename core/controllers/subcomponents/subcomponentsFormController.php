@@ -6,22 +6,14 @@ require_once($root . '/core/mysql.php');
 require_once($root . '/core/models/subcomponentsModel.php');
 require_once($root . '/core/models/maincomponentsModel.php');
 
-
-
-
 $db = getMysqlConnection();
-$maincomponentdata = NULL;
+$maincomponents = null;
 
-$maincomponents = Model_Maincomponents::getAllMaincomponents();
-if(isset($_POST['save']))
-{
+$maincomponents = Model_Maincomponents::getAllMaincomponents($db);
 
-
-
-
-
-
-	$maincomponentdata = array(
+if(isset($_POST['save'])) {
+	/*
+	$maincomponents = array(
 		'Beschreibung' => $_POST['beschreibung'],
 		'Seriennummer' => $_POST['seriennummer'],
 		'Gewaehrleistungsdauer' => $_POST['gewaehrleistungsdauer'],
@@ -34,12 +26,12 @@ if(isset($_POST['save']))
 	);
 
 	Model_Maincomponents::createNewMaincomponent($db, $maincomponentdata);
+	*/
 }
-$view = array(
-  'maincomponentdata' => $maincomponentdata,
-  'rootPath' => $root
-  );
 
+$view = array(
+	'maincomponentdata' => $maincomponents,
+	'rootPath' => $root
+);
 
 require_once($root . '/views/maincomponents/maincomponentsFormView.php');
-?>
