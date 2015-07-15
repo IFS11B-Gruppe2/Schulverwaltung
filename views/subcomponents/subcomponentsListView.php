@@ -60,8 +60,8 @@
 	<?php endforeach; ?>
 
 	<tr>
-		<td colspan="11" align="right">
-			<input type="submit" name="neu" value="Neu">
+		<td colspan="11" class="centerText">
+			<a class="actionButton" href="core/controllers/subcomponents/subcomponentsFormController.php">Neu</a>
 		</td>
 	</tr>
 </table>

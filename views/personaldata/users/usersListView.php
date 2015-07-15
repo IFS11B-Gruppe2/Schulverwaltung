@@ -12,7 +12,7 @@
 <body>
 
 <?php require_once($view['rootPath'] . '/views/menu.php'); ?>
-<form action="" method="POST">
+
 <table class="data evenRows">
 	<tr>
 		<th> Benutzer </th>
@@ -23,25 +23,21 @@
 	<tr>
 		<td> <?= $row['username'] ?> </td>
 		<td>
-		<?php
-		if($row['FK_Group']=='1')
-		{
-			echo "Administrator";
-		}else if($row['FK_Group']=='2')
-		{
-			echo "Mitarbeiter";
-		}
-		?>
+		<?php if ($row['FK_Group'] == '1'): ?>
+			Administrator
+		<?php elseif ($row['FK_Group'] == '2'): ?>
+			Mitarbeiter
+		<?php endif; ?>
 		</td>
 	</tr>
 	<?php endforeach; ?>
 
 	<tr>
-		<td colspan="2" align="right">
-			<a href="core/controllers/personaldata/users/usersFormController.php">Neu</a>
+		<td colspan="2" class="centerText">
+			<a class="actionButton" href="core/controllers/personaldata/users/usersFormController.php">Neu</a>
 		</td>
 	</tr>
 </table>
-</form>
+
 </body>
 </html>

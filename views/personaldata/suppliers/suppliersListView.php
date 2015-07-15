@@ -39,7 +39,7 @@
 	<?php foreach($view['supplier'] as $index => $row): ?>
 	<tr>
 		<td> <?= $row['Name'] ?> </td>
-		<td> <?= $row['Strasse'] .' '. $row['Hausnr'] ?> </td>
+		<td> <?= $row['Strasse'] . ' ' . $row['Hausnr'] ?> </td>
 		<td> <?= $row['Ort'] ?> </td>
 		<td> <?= $row['PLZ'] ?> </td>
 		<td> <?= $row['Email'] ?> </td>
@@ -49,8 +49,8 @@
 	<?php endforeach; ?>
 
 	<tr>
-		<td colspan="8" align="right">
-			<a href="core/controllers/personaldata/suppliers/suppliersFormController.php">Neu</a>
+		<td colspan="8" class="centerText">
+			<a class="actionButton" href="core/controllers/personaldata/suppliers/suppliersFormController.php">Neu</a>
 		</td>
 	</tr>
 </table>

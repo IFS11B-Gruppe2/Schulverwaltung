@@ -16,13 +16,13 @@
 <table class="data evenRows">
 	<tr>
 		<td> <input type="text" name="bescheibung"> </td>
-		<td> <input type="text" name="seriennummer" > </td>
-		<td> <input type="text" name="ablaufdatum" > </td>
-		<td> <input type="text" name="komponentenart" > </td>
-		<td> <input type="text" name="raum" > </td>
-		<td> <input type="text" name="einkaufdatum" > </td>
-		<td> <input type="text" name="hersteller" > </td>
-		<td> <input type="text" name="lieferant" > </td>
+		<td> <input type="text" name="seriennummer"> </td>
+		<td> <input type="text" name="ablaufdatum"> </td>
+		<td> <input type="text" name="komponentenart"> </td>
+		<td> <input type="text" name="raum"> </td>
+		<td> <input type="text" name="einkaufdatum"> </td>
+		<td> <input type="text" name="hersteller"> </td>
+		<td> <input type="text" name="lieferant"> </td>
 		<td> <input type="text" name="notiz"> </td>
 		<td> <input type="submit" name="suchen" value="Suchen"> </td>
 	</tr>
@@ -54,8 +54,8 @@
 	<?php endforeach; ?>
 
 	<tr>
-		<td colspan="11" align="right">
-			<a href="core/controllers/maincomponents/maincomponentsFormController.php">Neu</a>
+		<td colspan="11" class="centerText">
+			<a class="actionButton" href="core/controllers/maincomponents/maincomponentsFormController.php">Neu</a>
 		</td>
 	</tr>
 </table>

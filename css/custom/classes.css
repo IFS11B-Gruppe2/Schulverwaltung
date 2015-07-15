@@ -1,17 +1,23 @@
 /* ACTION BUTTON */
 .actionButton {
+  border: solid #858585 1px;
+  border-radius: 8px;
   -webkit-border-radius: 8;
   -moz-border-radius: 8;
-  border-radius: 8px;
-  color: #4d4b4d;
   background: #bbcbcb;
+  color: #4d4b4d;
+  display: inline-block;
   padding: 10px 20px 10px 20px;
-  border: solid #858585 1px;
   text-decoration: none;
 }
 .actionButton:hover {
   background: #e0f0f0;
   text-decoration: none;
+}
+
+/* CENTER TEXT */
+.centerText {
+	text-align: center;
 }
 
 /* LOGO */
@@ -67,6 +73,9 @@ table.data th {
 table.data th {
 	background-color: #bbcbcb;
 	text-align: left;
+}
+table.data tr:last-child {
+	background-color: #ffffff!important;
 }
 
 /* TABLE EVEN ROWS */
