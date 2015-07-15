@@ -12,7 +12,7 @@
 <body>
 
 <?php require_once($view['rootPath'] . '/views/menu.php'); ?>
-<form action="" method="POST">
+
 <table class="data evenRows">
 	<tr>
 		<td> <input type="text" class="fit" name="txtDescription" /> </td>
@@ -42,7 +42,11 @@
 	<?php foreach($view['maincomponents'] as $index => $row): ?>
 	<tr>
 		<td> <?= $row['Beschreibung'] ?> </td>
-		<td> <?= $row['Seriennummer'] ?> </td>
+		<td>
+			<a href="core/controllers/maincomponents/maincomponentsFormController.php?Seriennummer=<?= $row['Seriennummer'] ?>">
+				<?= $row['Seriennummer'] ?>
+			</a>
+		</td>
 		<td> <?= $row['Ablaufdatum'] ?> </td>
 		<td> <?= $row['Komponentenart'] ?> </td>
 		<td> <?= str_pad($row['FK_Raum'], 3, "0", STR_PAD_LEFT) ?> </td>
@@ -59,6 +63,6 @@
 		</td>
 	</tr>
 </table>
-</form>
+
 </body>
 </html>
