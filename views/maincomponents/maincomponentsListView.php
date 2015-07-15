@@ -39,7 +39,7 @@
 		<th colspan="2"> Notiz </th>
 	</tr>
 
-	<?php foreach($view['maincomponent'] as $index => $row): ?>
+	<?php foreach($view['maincomponents'] as $index => $row): ?>
 	<tr>
 		<td> <?= $row['Beschreibung'] ?> </td>
 		<td> <?= $row['Seriennummer'] ?> </td>

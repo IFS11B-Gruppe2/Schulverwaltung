@@ -26,7 +26,7 @@
 	<?php foreach($view['rooms'] as $index => $row): ?>
 	<tr>
 		<td>
-			<a href="core/controllers/maincomponentsListView.php?PK_Raumnr=<?= $row['PK_Raumnr'] ?>">
+			<a href="core/controllers/maincomponents/maincomponentsListController.php?PK_Raumnr=<?= $row['PK_Raumnr'] ?>">
 				<?= 'R' . str_pad($row['PK_Raumnr'], 3, "0", STR_PAD_LEFT) ?>
 			</a>
 		</td>
