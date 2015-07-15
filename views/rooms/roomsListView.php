@@ -26,7 +26,7 @@
 	<?php foreach($view['rooms'] as $index => $row): ?>
 	<tr>
 		<td>
-			<a href="/">
+			<a href="core/controllers/maincomponentsListView.php?PK_Raumnr=<?= $row['PK_Raumnr'] ?>">
 				<?= 'R' . str_pad($row['PK_Raumnr'], 3, "0", STR_PAD_LEFT) ?>
 			</a>
 		</td>
@@ -37,12 +37,6 @@
 		<td> <?= $row['Notiz'] ?> </td>
 	</tr>
 	<?php endforeach; ?>
-
-	<tr>
-		<td colspan="7" align="right">
-			<input type="submit" name="neu" value="Neu">
-		</td>
-	</tr>
 </table>
 
 </body>
