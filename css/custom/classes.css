@@ -1,3 +1,21 @@
+/* ACTION BUTTON */
+
+.actionButton {
+  -webkit-border-radius: 8;
+  -moz-border-radius: 8;
+  border-radius: 8px;
+  color: #4d4b4d;
+  background: #bbcbcb;
+  padding: 10px 20px 10px 20px;
+  border: solid #858585 1px;
+  text-decoration: none;
+}
+
+.actionButton:hover {
+  background: #e0f0f0;
+  text-decoration: none;
+}
+
 /* MAIN MENU */
 nav.mainMenu {
 	margin: 16px auto;
@@ -46,3 +64,5 @@ table.data th {
 table.evenRows tr:nth-child(odd) {
 	background-color: #e0f0f0;
 }
+
+
