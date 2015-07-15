@@ -1,18 +1,28 @@
 <?php
 
 class Model_Rooms {
-	static function getAllRooms($db, $orderBy = 'r.PK_Raumnr') {
+	static function getAllRooms($db, $orderBy = 'PK_Raumnr') {
 		$mysqlResult = null;
 		$rooms = array();
+
 		$sql = '
-			SELECT r.PK_Raumnr, r.Stockwerk, r.Notiz, count(k.PK_ID) as pc_anzahl
-			FROM raum as r, komponente as k
-			WHERE r.PK_Raumnr = k.FK_Raum
-			AND k.FK_Komponentenart = 19
-			GROUP BY r.PK_Raumnr
+			SELECT
+				r.*,
+				(
+					SELECT COUNT(k.PK_ID)
+					FROM komponente k
+					WHERE k.FK_Raum = r.PK_Raumnr
+					AND k.FK_Komponentenart = 1 # PC
+				) as "total_pc",
+				(
+					SELECT COUNT(k.PK_ID)
+					FROM komponente k
+					WHERE k.FK_Raum = r.PK_Raumnr
+					AND k.FK_Komponentenart = 19 # Printers
+				) as "total_printers"
+			FROM raum r
 			ORDER BY ' . $orderBy . '
 		';
-
 		$mysqlResult = $db->query($sql);
 
 		if ($mysqlResult === false) {

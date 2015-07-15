@@ -18,7 +18,6 @@
 		<th> Raum </th>
 		<th> PC Anzahl </th>
 		<th> Drucker Anzahl </th>
-		<th> Beamer Anzahl </th>
 		<th> Stockwerk </th>
 		<th> IP Adressbereich </th>
 		<th> Notiz </th>
@@ -26,12 +25,11 @@
 
 	<?php foreach($view['rooms'] as $index => $row): ?>
 	<tr>
-		<td> <?= str_pad($row['PK_Raumnr'], 3, "0", STR_PAD_LEFT) ?> </td>
-		<td> <?= $row['pc_anzahl'] ?> </td>
-		<td> <?= $row['drucker_anzahl'] ?> </td>
-		<td> <?= $row['beamer_anzahl'] ?> </td>
-		<td> <?= $row['Stockwerk'] ?> </td>
-		<td> <?= $row['ip_adress'] ?> </td>
+		<td> <?= 'R' . str_pad($row['PK_Raumnr'], 3, "0", STR_PAD_LEFT) ?> </td>
+		<td> <?= $row['total_pc'] ?> </td>
+		<td> <?= $row['total_printers'] ?> </td>
+		<td> <?= ($row['Stockwerk'] > 0) ? $row['Stockwerk'] . '.O.G.' : 'E.G.' ?> </td>
+		<td> <?= $row['IP_AdressbereichAnfang'] . ' - ' . $row['IP_AdressbereichEnde'] ?> </td>
 		<td> <?= $row['Notiz'] ?> </td>
 	</tr>
 	<?php endforeach; ?>
