@@ -4,15 +4,22 @@ $script_filename = $tmp[count($tmp) - 1];
 
 switch ($script_filename):
   case 'roomsListController.php':
+  case 'roomsFormController.php':
 		$roomsSelected = 'selected';
 		break;
 	case 'maincomponentsListController.php':
+	case 'maincomponentsFormController.php':
 		$maincomponentsSelected = 'selected';
 		break;
 	case 'subcomponentsListController.php':
+	case 'subcomponentsFormController.php':
 		$subcomponentsSelected = 'selected';
 		break;
 	case 'personaldataListController.php':
+	case 'usersListController.php':
+	case 'usersFormController.php':
+	case 'suppliersListController.php':
+	case 'suppliersFormController.php':
 		$personaldataSelected = 'selected';
 		break;
 endswitch;
