@@ -50,7 +50,7 @@
 
 	<tr>
 		<td colspan="8" align="right">
-			<input type="submit" name="neu" value="Neu">
+			<a href="core/controllers/personaldata/suppliers/suppliersFormController.php">Neu</a>
 		</td>
 	</tr>
 </table>

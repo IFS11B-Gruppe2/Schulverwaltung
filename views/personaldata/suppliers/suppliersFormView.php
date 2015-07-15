@@ -5,6 +5,7 @@
 	<title>Document</title>
 </head>
 <body>
+<form action="" method="POST">
 <table width="100%" border="true">
 <tr height="25">
 <td>Lieferant</td><td><input type="text" name="lieferant"
@@ -36,6 +37,7 @@
 </td>
 </tr>
 </table>
+</form>
 
 </body>
 </html>
