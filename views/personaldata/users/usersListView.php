@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<title>Document</title>
 
-	<base href="http://localhost/Schulverwaltung/" />
+	<base href="<?= $CONFIG['webHost'] ?>/" />
 
 	<link rel="stylesheet" type="text/css" href="css/libs/normalize-3.0.2.css" />
 	<link rel="stylesheet" type="text/css" href="css/custom/classes.css" />
@@ -22,7 +22,7 @@
 	<?php foreach($view['user'] as $index => $row): ?>
 	<tr>
 		<td> <?= $row['username'] ?> </td>
-		<td> 
+		<td>
 		<?php
 		if($row['FK_Group']=='1')
 		{

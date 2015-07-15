@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<title>Document</title>
 
-	<base href="http://localhost/Schulverwaltung/" />
+	<base href="<?= $CONFIG['webHost'] ?>/" />
 
 	<link rel="stylesheet" type="text/css" href="css/libs/normalize-3.0.2.css" />
 	<link rel="stylesheet" type="text/css" href="css/custom/classes.css" />
@@ -25,7 +25,11 @@
 
 	<?php foreach($view['rooms'] as $index => $row): ?>
 	<tr>
-		<td> <?= 'R' . str_pad($row['PK_Raumnr'], 3, "0", STR_PAD_LEFT) ?> </td>
+		<td>
+			<a href="/">
+				<?= 'R' . str_pad($row['PK_Raumnr'], 3, "0", STR_PAD_LEFT) ?>
+			</a>
+		</td>
 		<td> <?= $row['total_pc'] ?> </td>
 		<td> <?= $row['total_printers'] ?> </td>
 		<td> <?= ($row['Stockwerk'] > 0) ? $row['Stockwerk'] . '.O.G.' : 'E.G.' ?> </td>

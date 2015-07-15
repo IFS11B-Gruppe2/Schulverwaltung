@@ -1,6 +1,7 @@
 <?php
 
 $rootPath = '../../..';
+require_once($rootPath . '/config/config.php');
 
 $view = array(
 	'rootPath' => $rootPath

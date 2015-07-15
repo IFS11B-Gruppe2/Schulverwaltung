@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<title>Stammdaten</title>
 
-	<base href="http://localhost/Schulverwaltung/" />
+	<base href="<?= $CONFIG['webHost'] ?>/" />
 
 	<link rel="stylesheet" type="text/css" href="css/libs/normalize-3.0.2.css" />
 </head>
