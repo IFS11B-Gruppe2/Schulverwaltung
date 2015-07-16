@@ -65,6 +65,9 @@
 		</td>
 	</tr>
 </table>
+
+<?php require_once($view['rootPath'] . '/views/footer.html'); ?>
+
 </form>
 </body>
 </html>

@@ -29,14 +29,14 @@ input.fit {
 img.logo {
 	display: inline-block;
 	position: absolute;
-	top: 0;
+	top: 16px;
 	right: 0;
 	z-index: -1;
 }
 
 /* MAIN MENU */
 nav.mainMenu {
-	height: 175px;
+	height: 96px;
 	margin: 16px auto;
 	width: 99%;
 }

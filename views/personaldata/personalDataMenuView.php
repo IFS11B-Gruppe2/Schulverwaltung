@@ -20,5 +20,7 @@
 	</ul>
 </nav>
 
+<?php require_once($view['rootPath'] . '/views/footer.html'); ?>
+
 </body>
 </html>

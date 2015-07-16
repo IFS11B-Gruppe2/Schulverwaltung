@@ -26,9 +26,9 @@
 
 	<?php foreach($view['supplier'] as $index => $row): ?>
 	<tr>
-		<td> 
+		<td>
 		<a href="core/controllers/personaldata/suppliers/suppliersFormController.php?Lieferant=<?= $row['Name'] ?>">
-				<?= $row['Name'] ?> 
+				<?= $row['Name'] ?>
 			</a>
 		</td>
 		<td> <?= $row['Strasse'] . ' ' . $row['Hausnr'] ?> </td>
@@ -46,6 +46,8 @@
 		</td>
 	</tr>
 </table>
+
+<?php require_once($view['rootPath'] . '/views/footer.html'); ?>
 
 </body>
 </html>

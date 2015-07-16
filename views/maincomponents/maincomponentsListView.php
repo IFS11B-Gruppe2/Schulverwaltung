@@ -28,7 +28,7 @@
 		<td> <input type="submit" name="suchen" value="Suchen" /> </td>
 	</tr>
 </form>
-	
+
 	<tr>
 		<th> Beschreibung </th>
 		<th> Seriennummer </th>
@@ -65,6 +65,8 @@
 		</td>
 	</tr>
 </table>
+
+<?php require_once($view['rootPath'] . '/views/footer.html'); ?>
 
 </body>
 </html>

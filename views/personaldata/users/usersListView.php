@@ -21,7 +21,7 @@
 
 	<?php foreach($view['user'] as $index => $row): ?>
 	<tr>
-		<td> 
+		<td>
 		<a href="core/controllers/personaldata/users/usersFormController.php?User=<?= $row['username'] ?>">
 				<?= $row['username'] ?>
 			</a>
@@ -42,6 +42,8 @@
 		</td>
 	</tr>
 </table>
+
+<?php require_once($view['rootPath'] . '/views/footer.html'); ?>
 
 </body>
 </html>
