@@ -37,5 +37,26 @@ class Model_Users {
 		}
 
 		}
-	
+	static function getLoginUser ($db, $logindata){
+		$mysqlResult = null;
+		$user = array();
+		$sql = '
+			SELECT u.*, g.name as "group"
+			FROM users u
+			JOIN groups g on u.FK_Group=g.PK_ID
+			WHERE username="'.$logindata['name'].'";';
+
+		$mysqlResult = $db->query($sql);
+
+		if ($mysqlResult === false) {
+			die("sql query failed: (" . $db->errno . ") " . $db->error);
+		}
+
+		$mysqlResult->data_seek(0);
+		$user = $mysqlResult->fetch_assoc();
+
+		return $user;
+		
+		
+	}
 }
