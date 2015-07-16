@@ -30,7 +30,7 @@ endswitch;
 	<a class="blueButton <?= $maincomponentsSelected ?>" href="core/controllers/maincomponents/maincomponentsListController.php"> Hauptkomponenten </a>
 	<a class="blueButton <?= $subcomponentsSelected ?>" href="core/controllers/subcomponents/subcomponentsListController.php"> Teilkomponenten </a>
 	<a class="blueButton <?= $personaldataSelected ?>" href="core/controllers/personaldata/personaldataMenuController.php"> Stammdaten </a>
-	<a class="redButton" href="core/controllers/logout/logout.php"> Logout </a>
+	<a class="redButton" href="core/logout.php"> Logout </a>
 </nav>
 
 <img class="logo" src="img/logo.png" />
