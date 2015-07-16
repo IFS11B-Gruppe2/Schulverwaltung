@@ -110,6 +110,13 @@
 			<td> <input type="text" name="txtNote" value="<?= $view['form']['txtNote'] ?>" /> </td>
 		</tr>
 
+		<?php if (!isset($_GET['Seriennummer'])): ?>
+		<tr>
+			<td> Anzahl </td>
+			<td> <input type="text" name="txtHowMuch" value="<?= $view['form']['txtHowMuch'] ?>" /> </td>
+		</tr>
+		<?php endif; ?>
+
 		<tr>
 			<td>
 				<input type="submit" class="actionButton" name="btnSave" value="Speichern">

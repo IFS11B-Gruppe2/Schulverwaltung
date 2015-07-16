@@ -25,7 +25,8 @@ if (!isset($_GET['Seriennummer'])) {
 		'txtBuyDate' => '',
 		'txtManufacturer' => '',
 		'cmbSupplierID' => '',
-		'txtNote' => ''
+		'txtNote' => '',
+		'txtHowMuch' => ''
 	);
 } else {
 	$maincomponentdata = Model_Maincomponents::getMaincomponentBySerialNumber($db, $_GET['Seriennummer']);
@@ -39,7 +40,8 @@ if (!isset($_GET['Seriennummer'])) {
 		'txtBuyDate' => $maincomponentdata['Einkaufsdatum'],
 		'txtManufacturer' => $maincomponentdata['Hersteller'],
 		'cmbSupplierID' => $maincomponentdata['FK_Lieferant'],
-		'txtNote' => $maincomponentdata['Notiz']
+		'txtNote' => $maincomponentdata['Notiz'],
+		'txtHowMuch' => ''
 	);
 }
 
@@ -53,12 +55,19 @@ if(isset($_POST['btnSave'])) {
 	$form['txtManufacturer'] = $_POST['txtManufacturer'];
 	$form['cmbSupplierID'] = $_POST['cmbSupplierID'];
 	$form['txtNote'] = $_POST['txtNote'];
+	$form['txtHowMuch'] = $_POST['txtHowMuch'];
 
-	if (!isset($_GET['Seriennummer'])) {
-		$ok = Model_Maincomponents::createNewMaincomponent($db, $form);
-	} else {
-		$ok = Model_Maincomponents::updateMaincomponent($db, $_GET['Seriennummer'], $form);
-	}
+	$i = (!empty($_POST['txtHowMuch'])) ? $_POST['txtHowMuch'] : 0;
+
+	do {
+		if (!isset($_GET['Seriennummer'])) {
+			$ok = Model_Maincomponents::createNewMaincomponent($db, $form);
+		} else {
+			$ok = Model_Maincomponents::updateMaincomponent($db, $_GET['Seriennummer'], $form);
+		}
+
+		$i--;
+	} while($i > 0);
 }
 
 if (isset($_POST['delete'])) {
