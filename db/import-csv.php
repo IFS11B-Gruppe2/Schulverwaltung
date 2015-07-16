@@ -2,10 +2,10 @@
 
 $users = file('import/users.csv');
 
-$mysqli = new mysqli('localhost', 'root', 'mysqlserver!');
+$db = new mysqli('localhost', 'root', 'mysqlserver!');
 
-if ($mysqli->connect_errno) {
-	die("Failed to connect to MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error);
+if ($db->connect_errno) {
+	die("Failed to connect to MySQL: (" . $db->connect_errno . ") " . $db->connect_error);
 }
 
 foreach($users as $index => $row) {
@@ -13,7 +13,7 @@ foreach($users as $index => $row) {
 		$fields = explode(',', $row);
 		$username = $fields[0];
 		$password = $fields[1];
-		$group = $fields[3];
+		$group = $fields[2];
 
 		if ($group == 'systemadmin') {
 			$groupID = 1;
@@ -23,17 +23,19 @@ foreach($users as $index => $row) {
 
 		$sql = "
 			INSERT INTO
-				users
-				(username, password, PK_Group)
+				stammdatenverwaltung.users
+				(username, password, FK_Group)
 			VALUES
 				('" . $username . "', '" . $password . "', " . $groupID . ")
 			;
 		";
 
-		$mysqli->query($sql);
+		$mysqlResult = $db->query($sql);
 
 		if ($mysqlResult === false) {
 			die("sql query failed: (" . $db->errno . ") " . $db->error);
+		} else {
+			echo '<h3>' . $username . ' importiert!</h3>';
 		}
 	}
 }
