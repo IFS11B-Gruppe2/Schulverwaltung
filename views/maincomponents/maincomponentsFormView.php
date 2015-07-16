@@ -83,10 +83,11 @@
 			<td> Lieferant </td>
 			<td>
 				<select name="cmbSupplierID">
-					<option disabled selected></option>
-					<option value="1"> Sinell EDV Zubehoer GmbH </option>
-					<option value="2"> Ingram Micro Distrubution GmbH </option>
-					<option value="3"> proMX GmbH </option>
+					<?php foreach ($view['suppliers'] as $index => $row): ?>
+						<option value="<?= $row['PK_ID'] ?>">
+							<?= $row['Name'] ?>
+						</option>
+					<?php endforeach; ?>
 				</select>
 			</td>
 		</tr>

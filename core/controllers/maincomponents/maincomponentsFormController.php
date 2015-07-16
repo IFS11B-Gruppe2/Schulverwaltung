@@ -5,12 +5,14 @@ require_once($root . '/config/config.php');
 require_once($root . '/core/mysql.php');
 require_once($root . '/core/models/maincomponentsModel.php');
 require_once($root . '/core/models/roomsModel.php');
+require_once($root . '/core/models/suppliersModel.php');
 
 $db = getMysqlConnection();
 $maincomponentdata = NULL;
 
 $maincomponentTypes = Model_Maincomponents::getMaincomponentTypes($db);
 $rooms = Model_Rooms::getAllRooms($db);
+$suppliers = Model_Suppliers::getAllSuppliers($db);
 
 if (!isset($_GET['Seriennummer'])) {
 	$form = array(
@@ -59,7 +61,8 @@ $view = array(
 	'form' => $form,
 	'maincomponentTypes' => $maincomponentTypes,
 	'rooms' => $rooms,
-	'rootPath' => $root
+	'rootPath' => $root,
+	'suppliers' => $suppliers
 );
 
 require_once($root . '/views/maincomponents/maincomponentsFormView.php');
