@@ -35,4 +35,4 @@ $view = array(
 	'rootPath' => $rootPath
 );
 
-require_once($rootPath . '/views/maincomponents/maincomponentsFormView.php');
+require_once($rootPath . '/views/subcomponents/subcomponentsFormView.php');
