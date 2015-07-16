@@ -1,11 +1,11 @@
 <?php
 
-$root = '../../..';
-require_once($root . '/config/config.php');
-require_once($root . '/core/login.php');
-require_once($root . '/core/mysql.php');
-require_once($root . '/core/models/subcomponentsModel.php');
-require_once($root . '/core/models/maincomponentsModel.php');
+$rootPath = '../../..';
+require_once($rootPath . '/config/config.php');
+require_once($rootPath . '/core/login.php');
+require_once($rootPath . '/core/mysql.php');
+require_once($rootPath . '/core/models/subcomponentsModel.php');
+require_once($rootPath . '/core/models/maincomponentsModel.php');
 
 $db = getMysqlConnection();
 $maincomponents = null;
@@ -32,7 +32,7 @@ if(isset($_POST['save'])) {
 
 $view = array(
 	'maincomponentdata' => $maincomponents,
-	'rootPath' => $root
+	'rootPath' => $rootPath
 );
 
-require_once($root . '/views/maincomponents/maincomponentsFormView.php');
+require_once($rootPath . '/views/maincomponents/maincomponentsFormView.php');

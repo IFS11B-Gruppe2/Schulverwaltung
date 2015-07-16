@@ -1,10 +1,10 @@
 <?php
 
-$root = '../../..';
-require_once($root . '/config/config.php');
-require_once($root . '/core/login.php');
-require_once($root . '/core/mysql.php');
-require_once($root . '/core/models/subcomponentsModel.php');
+$rootPath = '../../..';
+require_once($rootPath . '/config/config.php');
+require_once($rootPath . '/core/login.php');
+require_once($rootPath . '/core/mysql.php');
+require_once($rootPath . '/core/models/subcomponentsModel.php');
 
 
 $subcomponent = new Model_Subcomponents();
@@ -43,9 +43,9 @@ if (isset($_POST['suchen']))
 
 $view = array(
   'component' => $subcomponent,
-  'rootPath' => $root
+  'rootPath' => $rootPath
 );
 
 
-require_once($root . '/views/subcomponents/subcomponentsListView.php');
+require_once($rootPath . '/views/subcomponents/subcomponentsListView.php');
 ?>

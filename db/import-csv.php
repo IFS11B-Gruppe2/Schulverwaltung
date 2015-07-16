@@ -15,7 +15,7 @@ foreach($users as $index => $row) {
 		$password = $fields[1];
 		$group = $fields[2];
 
-		if ($group == 'systemadmin') {
+		if ($group == 'sysadmin') {
 			$groupID = 1;
 		} else {
 			$groupID = 2;

@@ -1,10 +1,10 @@
 <?php
 
-$root = '../../../..';
-require_once($root . '/config/config.php');
-require_once($root . '/core/login.php');
-require_once($root . '/core/mysql.php');
-require_once($root . '/core/models/suppliersModel.php');
+$rootPath = '../../../..';
+require_once($rootPath . '/config/config.php');
+require_once($rootPath . '/core/login.php');
+require_once($rootPath . '/core/mysql.php');
+require_once($rootPath . '/core/models/suppliersModel.php');
 
 
 
@@ -24,7 +24,7 @@ if (!isset($_GET['Lieferant'])) {
 	);
 }else{
 	$supplierdata = Model_Suppliers::getSupplierByName($db, $_GET['Lieferant']);
-	
+
 $form = array(
 		'Name' => $supplierdata['Name'],
 		'Strasse' => $supplierdata['Strasse'],
@@ -47,7 +47,7 @@ if(isset($_POST['btnSave']))
 		$form['Email'] = $_POST['email'];
 		$form['Telefon'] = $_POST['telefon'];
 		$form['Notiz'] = $_POST['notiz'];
-	
+
 
 	if (!isset($_GET['Lieferant'])){
 	Model_Suppliers::createNewSupplier($db, $form);
@@ -61,14 +61,14 @@ if (isset($_POST['delete']))
 	$form['Name'] = $_POST['lieferant'];
 	Model_Suppliers::disableSupplier($db, $form);
 }
-	
+
 $view = array(
   'supplierdata' => $supplierdata,
-  'rootPath' => $root,
+  'rootPath' => $rootPath,
   'form' => $form
   );
 
 
 
-require_once($root . '/views/personaldata/suppliers/suppliersFormView.php');
+require_once($rootPath . '/views/personaldata/suppliers/suppliersFormView.php');
 ?>

@@ -1,10 +1,10 @@
 <?php
 
-$root = '../../../..';
-require_once($root . '/config/config.php');
-require_once($root . '/core/login.php');
-require_once($root . '/core/mysql.php');
-require_once($root . '/core/models/usersModel.php');
+$rootPath = '../../../..';
+require_once($rootPath . '/config/config.php');
+require_once($rootPath . '/core/login.php');
+require_once($rootPath . '/core/mysql.php');
+require_once($rootPath . '/core/models/usersModel.php');
 
 
 
@@ -21,9 +21,9 @@ $user = $user::getAllUsers($db);
 
 $view = array(
   'user' => $user,
-  'rootPath' => $root
+  'rootPath' => $rootPath
 );
 
 
-require_once($root . '/views/personaldata/users/usersListView.php');
+require_once($rootPath . '/views/personaldata/users/usersListView.php');
 ?>

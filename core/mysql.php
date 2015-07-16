@@ -1,8 +1,11 @@
 <?php
 
-// TODO
-function getMysqlConnection($group = 'user') {
+function getMysqlConnection($group = 'users') {
 	global $CONFIG;
+
+	if (isset($_SESSION['login'])) {
+		$group = $_SESSION['login']['group'];
+	}
 
 	$host = $CONFIG['database']['host'];
 	$username = $CONFIG['database']['users'][$group]['username'];

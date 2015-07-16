@@ -1,10 +1,10 @@
 <?php
 session_start();
 
-$root = '../../..';
-require_once($root . '/config/config.php');
-require_once($root . '/core/mysql.php');
-require_once($root . '/core/models/usersModel.php');
+$rootPath = '../../..';
+require_once($rootPath . '/config/config.php');
+require_once($rootPath . '/core/mysql.php');
+require_once($rootPath . '/core/models/usersModel.php');
 
 $db = getMysqlConnection();
 $logindata = NULL;
@@ -32,4 +32,4 @@ if(isset($_POST['login'])) {
 
 }
 
-require_once($root . '/views/login/loginform.php');
+require_once($rootPath . '/views/login/loginform.php');

@@ -1,10 +1,10 @@
 <?php
 
-$root = '../../..';
-require_once($root . '/config/config.php');
-require_once($root . '/core/login.php');
-require_once($root . '/core/mysql.php');
-require_once($root . '/core/models/maincomponentsModel.php');
+$rootPath = '../../..';
+require_once($rootPath . '/config/config.php');
+require_once($rootPath . '/core/login.php');
+require_once($rootPath . '/core/mysql.php');
+require_once($rootPath . '/core/models/maincomponentsModel.php');
 
 $db = getMysqlConnection();
 	$maincomponents = Model_Maincomponents::getAllMaincomponents($db);
@@ -44,7 +44,7 @@ if (isset($_GET['PK_Raumnr'])) {
 
 $view = array(
   'maincomponents' => $maincomponents,
-  'rootPath' => $root
+  'rootPath' => $rootPath
 );
 
-require_once($root . '/views/maincomponents/maincomponentsListView.php');
+require_once($rootPath . '/views/maincomponents/maincomponentsListView.php');

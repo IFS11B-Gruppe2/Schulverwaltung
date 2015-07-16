@@ -1,10 +1,10 @@
 <?php
 
-$root = '../../../..';
-require_once($root . '/config/config.php');
-require_once($root . '/core/login.php');
-require_once($root . '/core/mysql.php');
-require_once($root . '/core/models/usersModel.php');
+$rootPath = '../../../..';
+require_once($rootPath . '/config/config.php');
+require_once($rootPath . '/core/login.php');
+require_once($rootPath . '/core/mysql.php');
+require_once($rootPath . '/core/models/usersModel.php');
 
 
 
@@ -24,7 +24,7 @@ if (!isset($_GET['User'])) {
 	);
 }else{
 	$userdata = Model_Users::getUserByName($db, $_GET['User']);
-	
+
 $form = array(
 		'username' => $userdata['username'],
 		'password' => $userdata['password'],
@@ -42,7 +42,7 @@ if(isset($_POST['save']))
 	{
 		$group = '2';
 	}
-	
+
 	$form['username'] = $_POST['benutzer'];
 	$form['password'] = $_POST['passwort'];
 	$form['FK_Group'] = $group;
@@ -52,7 +52,7 @@ if (!isset($_GET['User'])){
 	} else{
 		Model_Users::updateUsers($db, $_GET['User'], $form);
 	}
-	
+
 }
 
 if (isset($_POST['delete']))
@@ -61,14 +61,14 @@ if (isset($_POST['delete']))
 	'name' => $_POST['benutzer'],
 	'password' => $_POST['passwort'],
 	);
-	Model_Users::deleteUser($db, $userdata);	
+	Model_Users::deleteUser($db, $userdata);
 }
 $view = array(
   'userdata' => $userdata,
-  'rootPath' => $root,
+  'rootPath' => $rootPath,
   'form' => $form
   );
 
 
-require_once($root . '/views/personaldata/users/usersFormView.php');
+require_once($rootPath . '/views/personaldata/users/usersFormView.php');
 ?>

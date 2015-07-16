@@ -1,12 +1,12 @@
 <?php
 
-$root = '../../..';
-require_once($root . '/config/config.php');
-require_once($root . '/core/login.php');
-require_once($root . '/core/mysql.php');
-require_once($root . '/core/models/maincomponentsModel.php');
-require_once($root . '/core/models/roomsModel.php');
-require_once($root . '/core/models/suppliersModel.php');
+$rootPath = '../../..';
+require_once($rootPath . '/config/config.php');
+require_once($rootPath . '/core/login.php');
+require_once($rootPath . '/core/mysql.php');
+require_once($rootPath . '/core/models/maincomponentsModel.php');
+require_once($rootPath . '/core/models/roomsModel.php');
+require_once($rootPath . '/core/models/suppliersModel.php');
 
 $db = getMysqlConnection();
 $maincomponentdata = NULL;
@@ -65,8 +65,8 @@ $view = array(
 	'form' => $form,
 	'maincomponentTypes' => $maincomponentTypes,
 	'rooms' => $rooms,
-	'rootPath' => $root,
+	'rootPath' => $rootPath,
 	'suppliers' => $suppliers
 );
 
-require_once($root . '/views/maincomponents/maincomponentsFormView.php');
+require_once($rootPath . '/views/maincomponents/maincomponentsFormView.php');

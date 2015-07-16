@@ -2,8 +2,8 @@
 
 session_start();
 
-$root = '..';
-require_once($root . '/config/config.php');
+$rootPath = '..';
+require_once($rootPath . '/config/config.php');
 
 unset($_SESSION['login']);
 

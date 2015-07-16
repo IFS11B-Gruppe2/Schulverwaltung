@@ -1,9 +1,9 @@
 <?php
 
-$root = '../../../..';
-require_once($root . '/config/config.php');
-require_once($root . '/core/mysql.php');
-require_once($root . '/core/models/roomsModel.php');
+$rootPath = '../../../..';
+require_once($rootPath . '/config/config.php');
+require_once($rootPath . '/core/mysql.php');
+require_once($rootPath . '/core/models/roomsModel.php');
 
 
 // Test creation
