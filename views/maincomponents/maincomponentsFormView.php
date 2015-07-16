@@ -116,6 +116,10 @@
 			</td>
 
 			<td>
+				<?php if (isset($_GET['Seriennummer'])): ?>
+				<input type="submit" class="actionButton" name="delete" value="Löschen">
+				<?php endif; ?>
+
 				<a class="actionButton" href="core/controllers/maincomponents/maincomponentsListController.php">Zur&uuml;ck</a>
 			</td>
 		</tr>

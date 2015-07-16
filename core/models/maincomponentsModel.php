@@ -30,6 +30,25 @@ class Model_Maincomponents {
 		return true;
 	}
 
+	static function deleteMaincomponent($db, $serialNumber) {
+		$sql = "
+			UPDATE komponente
+			SET
+				FK_Raum = 0
+			WHERE
+				Seriennummer = '" . $serialNumber . "'
+			;
+		";
+
+		$mysqlResult = $db->query($sql);
+
+		if ($mysqlResult === false) {
+			die("sql query failed: (" . $db->errno . ") " . $db->error);
+		}
+
+		return $mysqlResult;
+	}
+
 	static function getAllMaincomponents($db, $orderBy = 'k.PK_ID') {
 		$mysqlResult = null;
 		$maincomponents = array();
@@ -44,6 +63,7 @@ class Model_Maincomponents {
 			OR k.FK_Komponentenart = 17
 			OR k.FK_Komponentenart = 18
 			OR k.FK_Komponentenart = 19)
+			AND k.FK_Raum != 0
 			ORDER BY ' . $orderBy . '
 		';
 
@@ -103,6 +123,7 @@ class Model_Maincomponents {
 			AND k.FK_Komponentenart = kart.PK_ID
 			AND (k.FK_Komponentenart = 1
 			OR k.FK_Komponentenart = 19)
+			AND k.FK_Raum != 0
 			AND k.Seriennummer = '" . $serialNumber . "'
 		";
 
@@ -155,32 +176,35 @@ class Model_Maincomponents {
 			OR k.FK_Komponentenart = 18
 			OR k.FK_Komponentenart = 19)
 		";
-		if(isset($searchdata['txtDescription']))
-		$sql .= "AND k.Beschreibung LIKE '%".$searchdata['txtDescription']."%'";
-	
-		if(isset($searchdata['seriennummer']))
-		$sql .= "AND k.Seriennummer LIKE '%".$searchdata['seriennummer']."%'";
+		if(!empty($searchdata['txtDescription']))
+		$sql .= " AND k.Beschreibung LIKE '%".$searchdata['txtDescription']."%'";
 
-			if(isset($searchdata['komponentenart']))
-		$sql .= "AND kart.Bezeichnung  LIKE '%".$searchdata['komponentenart']."%'";
-	
-			if(isset($searchdata['raum']))
-		$sql .= "AND k.FK_Raum LIKE '%".$searchdata['raum']."'";
-	
-			if(isset($searchdata['einkaufdatum']))
-		$sql .= "AND k.Einkaufsdatum LIKE '%".$searchdata['einkaufdatum']."%'";
-	
-			if(isset($searchdata['hersteller']))
-		$sql .= "AND k.Hersteller LIKE '%".$searchdata['hersteller']."%'";
-	
-			if(isset($searchdata['lieferant']))
-		$sql .= "AND l.Name LIKE '%".$searchdata['lieferant']."%'";
+		if(!empty($searchdata['seriennummer']))
+		$sql .= " AND k.Seriennummer LIKE '%".$searchdata['seriennummer']."%'";
 
-				if(isset($searchdata['notiz']))
-		$sql .= "AND k.Notiz LIKE '%".$searchdata['notiz']."%'";
+			if(!empty($searchdata['komponentenart']))
+		$sql .= " AND kart.Bezeichnung  LIKE '%".$searchdata['komponentenart']."%'";
 
-		$sql .= "ORDER BY '" . $orderBy . "'";
-		
+		if(!empty($searchdata['raum']) or $searchdata['raum'] === '0') {
+			$sql .= " AND k.FK_Raum LIKE '%".$searchdata['raum']."'";
+		} else {
+			$sql .= " AND k.FK_Raum != 0";
+		}
+
+			if(!empty($searchdata['einkaufdatum']))
+		$sql .= " AND k.Einkaufsdatum LIKE '%".$searchdata['einkaufdatum']."%'";
+
+			if(!empty($searchdata['hersteller']))
+		$sql .= " AND k.Hersteller LIKE '%".$searchdata['hersteller']."%'";
+
+			if(!empty($searchdata['lieferant']))
+		$sql .= " AND l.Name LIKE '%".$searchdata['lieferant']."%'";
+
+				if(!empty($searchdata['notiz']))
+		$sql .= " AND k.Notiz LIKE '%".$searchdata['notiz']."%'";
+
+		$sql .= " ORDER BY " . $orderBy . ";";
+
 		$mysqlResult = $db->query($sql);
 
 		if ($mysqlResult === false) {

@@ -66,7 +66,9 @@
 				<input type="submit" class="actionButton" name="btnSave" value="Speichern">
 			</td>
 			<td>
+				<?php if (isset($_GET['Lieferant'])): ?>
 				<input type="submit" class="actionButton" name="delete" value="Löschen">
+				<?php endif; ?>
 
 				<a class="actionButton" href="core/controllers/personaldata/suppliers/suppliersListController.php">Zur&uuml;ck</a>
 			</td>

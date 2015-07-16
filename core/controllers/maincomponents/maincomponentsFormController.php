@@ -61,6 +61,15 @@ if(isset($_POST['btnSave'])) {
 	}
 }
 
+if (isset($_POST['delete'])) {
+	$ok = Model_Maincomponents::deleteMaincomponent($db, $_GET['Seriennummer']);
+
+	if ($ok === true) {
+		header("Location: " . $CONFIG['webHost'] . "/core/controllers/maincomponents/maincomponentsListController.php");
+		die('Error: Redirection has not worked.');
+	}
+}
+
 $view = array(
 	'form' => $form,
 	'maincomponentTypes' => $maincomponentTypes,
