@@ -13,6 +13,7 @@
 
 <?php require_once($view['rootPath'] . '/views/menu.php'); ?>
 
+<form action="" method="POST">
 <table class="data evenRows">
 	<tr>
 		<td> <input type="text" class="fit" name="bescheibung" /> </td>
@@ -26,7 +27,6 @@
 		<td> <input type="text" class="fit" name="notiz" /> </td>
 		<td> <input type="submit" name="suchen" value="Suchen"> </td>
 	</tr>
-
 	<tr>
 		<th> Beschreibung </th>
 		<th> Haupkomponente </th>
@@ -42,7 +42,7 @@
 	<?php foreach($view['component'] as $index => $row): ?>
 	<tr>
 		<td> <?= $row['Beschreibung'] ?> </td>
-		<td> <?= $row['Beschreibung'] ?> </td>
+		<td> <?= $row['Seriennummer'] ?> </td>
 		<td>
 			<?php if ($row['FK_Raum'] == '0'): ?>
 				Ja
@@ -65,6 +65,6 @@
 		</td>
 	</tr>
 </table>
-
+</form>
 </body>
 </html>

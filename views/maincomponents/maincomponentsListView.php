@@ -14,6 +14,7 @@
 <?php require_once($view['rootPath'] . '/views/menu.php'); ?>
 
 <table class="data evenRows">
+<form action="" method="post">
 	<tr>
 		<td> <input type="text" class="fit" name="txtDescription" /> </td>
 		<td> <input type="text" class="fit" name="seriennummer" /> </td>
@@ -26,7 +27,8 @@
 		<td> <input type="text" class="fit" name="notiz" /> </td>
 		<td> <input type="submit" name="suchen" value="Suchen" /> </td>
 	</tr>
-
+</form>
+	
 	<tr>
 		<th> Beschreibung </th>
 		<th> Seriennummer </th>

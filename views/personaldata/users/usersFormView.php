@@ -39,6 +39,10 @@
 			<td colspan="2" class="centerText">
 				<input type="submit" class="actionButton" name="save" value="Speichern" />
 			</td>
+
+			<td colspan="2" class="centerText">
+				<a class="actionButton" href="core/controllers/personaldata/users/usersListController.php">Zur&uuml;ck</a>
+			</td>
 		</tr>
 	</table>
 </form>

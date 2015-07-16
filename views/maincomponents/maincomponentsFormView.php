@@ -108,6 +108,10 @@
 			<td colspan="2" class="centerText">
 				<input type="submit" class="actionButton" name="btnSave" value="Speichern">
 			</td>
+
+			<td colspan="2" class="centerText">
+				<a class="actionButton" href="core/controllers/maincomponents/maincomponentsListController.php">Zur&uuml;ck</a>
+			</td>
 		</tr>
 	</table>
 </form>

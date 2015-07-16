@@ -38,8 +38,12 @@ class Model_Maincomponents {
 			FROM komponente as k, komponentenart as kart, lieferant as l
 			WHERE k.FK_Lieferant = l.PK_ID
 			AND k.FK_Komponentenart = kart.PK_ID
-			AND k.FK_Komponentenart = 1
-			OR k.FK_Komponentenart = 19
+			AND (k.FK_Komponentenart = 1
+			OR k.FK_Komponentenart = 14
+			OR k.FK_Komponentenart = 16
+			OR k.FK_Komponentenart = 17
+			OR k.FK_Komponentenart = 18
+			OR k.FK_Komponentenart = 19)
 			ORDER BY ' . $orderBy . '
 		';
 
@@ -66,6 +70,10 @@ class Model_Maincomponents {
 			WHERE k.FK_Lieferant = l.PK_ID
 			AND k.FK_Komponentenart = kart.PK_ID
 			AND (k.FK_Komponentenart = 1
+			OR k.FK_Komponentenart = 14
+			OR k.FK_Komponentenart = 16
+			OR k.FK_Komponentenart = 17
+			OR k.FK_Komponentenart = 18
 			OR k.FK_Komponentenart = 19)
 			AND k.FK_Raum = ' . $roomNumber . '
 			ORDER BY ' . $orderBy . '
@@ -130,6 +138,61 @@ class Model_Maincomponents {
 		}
 
 		return $maincomponentTypes;
+	}
+
+	static function GetSearchMaincomponents($db, $searchdata, $orderBy = 'k.PK_ID') {
+		$mysqlResult = null;
+		$maincomponents = array();
+		$sql = "
+			SELECT kart.Bezeichnung as Komponentenart, k.Seriennummer, k.Beschreibung, k.Hersteller, k.Einkaufsdatum, k.Gewaehrleistungsdauer, k.Einkaufsdatum + INTERVAL k.Gewaehrleistungsdauer YEAR as Ablaufdatum, k.Notiz, k.FK_Lieferant, k.FK_Raum, l.Name
+			FROM komponente as k, komponentenart as kart, lieferant as l
+			WHERE k.FK_Lieferant = l.PK_ID
+			AND k.FK_Komponentenart = kart.PK_ID
+			AND (k.FK_Komponentenart = 1
+			OR k.FK_Komponentenart = 14
+			OR k.FK_Komponentenart = 16
+			OR k.FK_Komponentenart = 17
+			OR k.FK_Komponentenart = 18
+			OR k.FK_Komponentenart = 19)
+		";
+		if(isset($searchdata['txtDescription']))
+		$sql .= "AND k.Beschreibung LIKE '%".$searchdata['txtDescription']."%'";
+	
+		if(isset($searchdata['seriennummer']))
+		$sql .= "AND k.Seriennummer LIKE '%".$searchdata['seriennummer']."%'";
+
+			if(isset($searchdata['komponentenart']))
+		$sql .= "AND kart.Bezeichnung  LIKE '%".$searchdata['komponentenart']."%'";
+	
+			if(isset($searchdata['raum']))
+		$sql .= "AND k.FK_Raum LIKE '%".$searchdata['raum']."'";
+	
+			if(isset($searchdata['einkaufdatum']))
+		$sql .= "AND k.Einkaufsdatum LIKE '%".$searchdata['einkaufdatum']."%'";
+	
+			if(isset($searchdata['hersteller']))
+		$sql .= "AND k.Hersteller LIKE '%".$searchdata['hersteller']."%'";
+	
+			if(isset($searchdata['lieferant']))
+		$sql .= "AND l.Name LIKE '%".$searchdata['lieferant']."%'";
+
+				if(isset($searchdata['notiz']))
+		$sql .= "AND k.Notiz LIKE '%".$searchdata['notiz']."%'";
+
+		$sql .= "ORDER BY '" . $orderBy . "'";
+		
+		$mysqlResult = $db->query($sql);
+
+		if ($mysqlResult === false) {
+			die("sql query failed: (" . $db->errno . ") " . $db->error);
+		}
+
+		$mysqlResult->data_seek(0);
+		while ($row = $mysqlResult->fetch_assoc()) {
+			array_push($maincomponents, $row);
+		}
+
+		return $maincomponents;
 	}
 
 	static function updateMaincomponent($db, $serialNumber, $maincomponentdata){
