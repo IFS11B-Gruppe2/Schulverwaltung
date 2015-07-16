@@ -105,11 +105,11 @@
 		</tr>
 
 		<tr>
-			<td colspan="2" class="centerText">
+			<td>
 				<input type="submit" class="actionButton" name="btnSave" value="Speichern">
 			</td>
 
-			<td colspan="2" class="centerText">
+			<td>
 				<a class="actionButton" href="core/controllers/maincomponents/maincomponentsListController.php">Zur&uuml;ck</a>
 			</td>
 		</tr>

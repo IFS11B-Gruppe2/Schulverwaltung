@@ -56,13 +56,12 @@
 		</tr>
 
 		<tr>
-			<td colspan="2" class="centerText">
+			<td>
 				<input type="submit" class="actionButton" name="btnSave" value="Speichern">
 			</td>
-			<td colspan="2" class="centerText">
+			<td>
 				<input type="submit" class="actionButton" name="delete" value="Löschen">
-			</td>
-			<td colspan="2" class="centerText">
+
 				<a class="actionButton" href="core/controllers/personaldata/suppliers/suppliersListController.php">Zur&uuml;ck</a>
 			</td>
 		</tr>

@@ -36,13 +36,14 @@
 		</tr>
 
 		<tr>
-			<td colspan="2" class="centerText">
+			<td>
 				<input type="submit" class="actionButton" name="save" value="Speichern" />
 			</td>
-			<td colspan="2" class="centerText">
+			<td>
+				<?php if (isset($_GET['User'])): ?>
 				<input type="submit" class="actionButton" name="delete" value="Löschen" />
-			</td>
-			<td colspan="2" class="centerText">
+				<?php endif; ?>
+
 				<a class="actionButton" href="core/controllers/personaldata/users/usersListController.php">Zur&uuml;ck</a>
 			</td>
 		</tr>
