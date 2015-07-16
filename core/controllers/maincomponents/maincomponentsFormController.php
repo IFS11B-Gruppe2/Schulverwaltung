@@ -22,7 +22,7 @@ if (!isset($_GET['Seriennummer'])) {
 	);
 } else {
 	$maincomponentdata = Model_Maincomponents::getMaincomponentBySerialNumber($db, $_GET['Seriennummer']);
-var_dump($maincomponentdata);
+
 	$form = array(
 		'txtDescription' => $maincomponentdata['Beschreibung'],
 		'txtSerialNumber' => $maincomponentdata['Seriennummer'],
