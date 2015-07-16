@@ -48,9 +48,9 @@ if(isset($_POST['save']))
 	$form['FK_Group'] = $group;
 
 if (!isset($_GET['User'])){
-	Model_Users::updateUsers($db, $form);
+	$ok = Model_Users::createNewUser($db, $form);
 	} else{
-		Model_Users::updateUsers($db, $_GET['User'], $form);
+		$ok = Model_Users::updateUsers($db, $_GET['User'], $form);
 	}
 
 }
@@ -61,11 +61,17 @@ if (isset($_POST['delete']))
 	'name' => $_POST['benutzer'],
 	'password' => $_POST['passwort'],
 	);
-	Model_Users::deleteUser($db, $userdata);
+	$ok = Model_Users::deleteUser($db, $userdata);
+
+	if ($ok === true) {
+		header("Location: " . $CONFIG['webHost'] . "/core/controllers/personaldata/users/usersListController.php");
+		die('Error: Redirection has not worked.');
+	}
 }
 $view = array(
   'userdata' => $userdata,
   'rootPath' => $rootPath,
+	'saveOK' => (isset($ok)) ? $ok : null,
   'form' => $form
   );
 

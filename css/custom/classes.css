@@ -65,6 +65,13 @@ nav.mainMenu a.redButton {
 	color: #ffffff;
 }
 
+/* POSITIVE MESSAGE */
+.positiveMessage {
+	color: green;
+	font-weight: bold;
+	text-align: center;
+}
+
 /* TABLE DATA */
 table.data {
 	border: 1px solid black;

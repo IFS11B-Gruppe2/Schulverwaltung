@@ -6,7 +6,7 @@ class Model_Users {
 		$user = array();
 		$sql = '
 			SELECT *
-			FROM users 
+			FROM users
 			ORDER BY ' . $orderBy . '
 		';
 
@@ -27,15 +27,15 @@ class Model_Users {
 		$mysqlResult = null;
 
 		$sql = "
-			INSERT INTO users (username, password, FK_Group) VALUES ('".$userdata['name']."','".$userdata['password']."',".$userdata['group'].")		
+			INSERT INTO users (username, password, FK_Group) VALUES ('".$userdata['username']."','".$userdata['password']."',".$userdata['FK_Group'].")
 			";
-		
+
 		$mysqlResult = $db->query($sql);
-		
+
 		if ($mysqlResult === false) {
 			die("sql query failed: (" . $db->errno . ") " . $db->error);
 		}
-
+		return $mysqlResult;
 		}
 	static function getLoginUser ($db, $logindata){
 		$mysqlResult = null;
@@ -56,19 +56,21 @@ class Model_Users {
 		$user = $mysqlResult->fetch_assoc();
 
 		return $user;
-		
-		
+
+
 	}
 	static function deleteUser($db, $userdata){
 		$mysqlResult = null;
 
 		$sql = 'DELETE FROM users WHERE username="'.$userdata['name'].'";';
-		
+
 		$mysqlResult = $db->query($sql);
-		
+
 		if ($mysqlResult === false) {
 			die("sql query failed: (" . $db->errno . ") " . $db->error);
 		}
+
+		return $mysqlResult;
 	}
 	static function updateUsers($db, $name, $userdata){
 		$mysqlResult = null;
@@ -92,7 +94,7 @@ class Model_Users {
 
 		return true;
 	}
-	
+
 	static function getUserByName($db, $Name) {
 	$mysqlResult = null;
 		$user = null;

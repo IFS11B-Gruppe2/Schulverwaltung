@@ -14,6 +14,12 @@
 <?php require_once($view['rootPath'] . '/views/menu.php'); ?>
 
 <form action="" method="POST">
+	<?php if (isset($view['saveOK']) and $view['saveOK'] === true): ?>
+	<p class="positiveMessage">
+		Hauptkomponente gespeichert!
+	</p>
+	<?php endif; ?>
+
 	<table class="form">
 		<tr>
 			<td> Beschreibung </td>

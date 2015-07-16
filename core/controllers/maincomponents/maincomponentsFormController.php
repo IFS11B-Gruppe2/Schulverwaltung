@@ -55,15 +55,16 @@ if(isset($_POST['btnSave'])) {
 	$form['txtNote'] = $_POST['txtNote'];
 
 	if (!isset($_GET['Seriennummer'])) {
-		Model_Maincomponents::createNewMaincomponent($db, $form);
+		$ok = Model_Maincomponents::createNewMaincomponent($db, $form);
 	} else {
-		Model_Maincomponents::updateMaincomponent($db, $_GET['Seriennummer'], $form);
+		$ok = Model_Maincomponents::updateMaincomponent($db, $_GET['Seriennummer'], $form);
 	}
 }
 
 $view = array(
 	'form' => $form,
 	'maincomponentTypes' => $maincomponentTypes,
+	'saveOK' => (isset($ok)) ? $ok : null,
 	'rooms' => $rooms,
 	'rootPath' => $rootPath,
 	'suppliers' => $suppliers

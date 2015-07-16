@@ -50,21 +50,27 @@ if(isset($_POST['btnSave']))
 
 
 	if (!isset($_GET['Lieferant'])){
-	Model_Suppliers::createNewSupplier($db, $form);
+	$ok = Model_Suppliers::createNewSupplier($db, $form);
 	} else{
-		Model_Suppliers::updateSuppliers($db, $_GET['Lieferant'], $form);
+		$ok = Model_Suppliers::updateSuppliers($db, $_GET['Lieferant'], $form);
 	}
 }
 
 if (isset($_POST['delete']))
 {
 	$form['Name'] = $_POST['lieferant'];
-	Model_Suppliers::disableSupplier($db, $form);
+	$ok = Model_Suppliers::disableSupplier($db, $form);
+
+	if ($ok === true) {
+		header("Location: " . $CONFIG['webHost'] . "/core/controllers/personaldata/suppliers/suppliersListController.php");
+		die('Error: Redirection has not worked.');
+	}
 }
 
 $view = array(
   'supplierdata' => $supplierdata,
   'rootPath' => $rootPath,
+	'saveOK' => (isset($ok)) ? $ok : null,
   'form' => $form
   );
 
