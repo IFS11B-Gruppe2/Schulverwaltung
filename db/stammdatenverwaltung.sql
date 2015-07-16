@@ -9,12 +9,12 @@ use stammdatenverwaltung;
 
 #Benutzer festlegen
 CREATE USER 'M1t4rb31t3r'@'localhost' IDENTIFIED BY 'n3D5Lp6Yq9KxYd7B';GRANT SELECT ON *.* TO 'M1t4rb31t3r'@'localhost' IDENTIFIED BY 'n3D5Lp6Yq9KxYd7B' WITH MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 MAX_USER_CONNECTIONS 0;
-CREATE USER 'Syst3m4dm1n'@'localhost' IDENTIFIED BY 'pnQxQRxdtQcFRK2r';GRANT SELECT, INSERT, UPDATE, SHOW DATABASES, SHOW VIEW, EXECUTE ON *.* TO 'Syst3m4dm1n'@'localhost' IDENTIFIED BY 'pnQxQRxdtQcFRK2r' WITH MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 MAX_USER_CONNECTIONS 0;
+CREATE USER 'Syst3m4dm1n'@'localhost' IDENTIFIED BY 'pnQxQRxdtQcFRK2r';GRANT SELECT, INSERT, UPDATE, DELETE, SHOW DATABASES, SHOW VIEW, EXECUTE ON *.* TO 'Syst3m4dm1n'@'localhost' IDENTIFIED BY 'pnQxQRxdtQcFRK2r' WITH MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 MAX_USER_CONNECTIONS 0;
 
 
 
 Create Table lieferant
-(PK_ID int AUTO_INCREMENT, Name text, Strasse text, Hausnr int, Ort text, PLZ int, Email text, Telefon int, Notiz text, constraint PK_Lieferant primary key (PK_ID));
+(PK_ID int AUTO_INCREMENT, Name text, Strasse text, Hausnr int, Ort text, PLZ int, Email text, Telefon int, Notiz text, disabled boolean default null, constraint PK_Lieferant primary key (PK_ID));
 
 Create Table komponente
 (PK_ID int AUTO_INCREMENT, Beschreibung text, Hersteller text, Notiz text, Einkaufsdatum date, Gewaehrleistungsdauer int, FK_Lieferant int, FK_Komponentenart int, FK_Raum int, Seriennummer text, constraint PK_Komponenten primary key (PK_ID));
