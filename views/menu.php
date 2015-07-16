@@ -15,7 +15,7 @@ switch ($script_filename):
 	case 'subcomponentsFormController.php':
 		$subcomponentsSelected = 'selected';
 		break;
-	case 'personaldataListController.php':
+	case 'personaldataMenuController.php':
 	case 'usersListController.php':
 	case 'usersFormController.php':
 	case 'suppliersListController.php':
