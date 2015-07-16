@@ -17,23 +17,23 @@
 	<table class="form">
 		<tr>
 			<td> Beschreibung </td>
-			<td> <input type="text" name="beschreibung" /> </td>
+			<td> <input type="text" name="txtDescription" value="<?= $view['form']['txtDescription'] ?>" /> </td>
 		</tr>
 
 		<tr>
 			<td> Seriennummer </td>
-			<td> <input type="text" name="seriennummer" /> </td>
+			<td> <input type="text" name="txtSerialNumber" value="<?= $view['form']['txtSerialNumber'] ?>" /> </td>
 		</tr>
 
 		<tr>
 			<td> Gewaehrleistungsdauer </td>
-			<td> <input type="int" name="gewaehrleistungsdauer" /> </td>
+			<td> <input type="number" name="txtWarrantyYears" value="<?= $view['form']['txtWarrantyYears'] ?>" /> </td>
 		</tr>
 
 		<tr>
 			<td> Komponentenart </td>
 			<td>
-				<select name="art">
+				<select name="cmbComponentType">
 					<option disabled selected></option>
 					<option value="1"> PC </option>
 					<option value="19"> Drucker </option>
@@ -44,7 +44,7 @@
 		<tr>
 			<td> Raum </td>
 			<td>
-				<select name="raum">
+				<select name="cmbRoomNumber">
 					<option disabled selected></option>
 					<option value="0"> Ausgemustert </option>
 					<option value="1"> R001 </option>
@@ -58,18 +58,18 @@
 
 		<tr>
 			<td> Einkaufdatum </td>
-			<td> <input type="date" name="einkaufdatum" /> </td>
+			<td> <input type="date" name="txtBuyDate" value="<?= $view['form']['txtBuyDate'] ?>" /> </td>
 		</tr>
 
 		<tr>
 			<td> Hersteller </td>
-			<td> <input type="text" name="hersteller" /> </td>
+			<td> <input type="text" name="txtManufacturer" value="<?= $view['form']['txtManufacturer'] ?>" /> </td>
 		</tr>
 
 		<tr>
 			<td> Lieferant </td>
 			<td>
-				<select name="lieferant">
+				<select name="cmbSupplierID">
 					<option disabled selected></option>
 					<option value="1"> Sinell EDV Zubehoer GmbH </option>
 					<option value="2"> Ingram Micro Distrubution GmbH </option>
@@ -80,12 +80,12 @@
 
 		<tr>
 			<td> Notiz </td>
-			<td> <input type="text" name="notiz" /> </td>
+			<td> <input type="text" name="txtNote" value="<?= $view['form']['txtNote'] ?>" /> </td>
 		</tr>
 
 		<tr>
 			<td colspan="2" class="centerText">
-				<input type="submit" class="actionButton" name="save" value="Speichern">
+				<input type="submit" class="actionButton" name="btnSave" value="Speichern">
 			</td>
 		</tr>
 	</table>
