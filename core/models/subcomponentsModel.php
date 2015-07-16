@@ -17,10 +17,9 @@ class Model_Subcomponents {
 			JOIN komponentenart as kart
 			ON k.FK_Komponentenart = kart.PK_ID
 			JOIN lieferant as l 
-			ON k.FK_Lieferant = l.PK_ID			
+			ON k.FK_Lieferant = l.PK_ID		
 			WHERE k.FK_Komponentenart != 1
-			OR k.FK_Komponentenart != 19
-			ORDER BY " . $orderBy . "
+			OR k.FK_Komponentenart != 19	
 		";
 
 		$mysqlResult = $db->query($sql);
@@ -94,12 +93,11 @@ class Model_Subcomponents {
 		while ($row = $mysqlResult->fetch_assoc()) {
 			array_push($subcomponent, $row);
 		}
-var_dump($sql);	
+
 		return $subcomponent;
 		
 		
 	}
-
 
 }
 
