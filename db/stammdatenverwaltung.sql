@@ -17,7 +17,7 @@ Create Table lieferant
 (PK_ID int AUTO_INCREMENT, Name text, Strasse text, Hausnr int, Ort text, PLZ int, Email text, Telefon int, Notiz text, constraint PK_Lieferant primary key (PK_ID));
 
 Create Table komponente
-(PK_ID int AUTO_INCREMENT, Beschreibung text, Hersteller text, Notiz text, Einkaufsdatum date, Gewaehrleistungsdauer int, FK_Lieferant int, FK_Komponentenart int, FK_Raum int, Seriennummer text, Anzahl int, constraint PK_Komponenten primary key (PK_ID));
+(PK_ID int AUTO_INCREMENT, Beschreibung text, Hersteller text, Notiz text, Einkaufsdatum date, Gewaehrleistungsdauer int, FK_Lieferant int, FK_Komponentenart int, FK_Raum int, Seriennummer text, constraint PK_Komponenten primary key (PK_ID));
 
 Create Table KomponenteZuVorgang
 (FK_Hauptkomponente int, FK_Teilkomponente int, FK_Vorgang int, Datum date);
