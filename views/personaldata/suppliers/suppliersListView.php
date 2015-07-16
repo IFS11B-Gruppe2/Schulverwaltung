@@ -26,7 +26,11 @@
 
 	<?php foreach($view['supplier'] as $index => $row): ?>
 	<tr>
-		<td> <?= $row['Name'] ?> </td>
+		<td> 
+		<a href="core/controllers/personaldata/suppliers/suppliersFormController.php?Lieferant=<?= $row['Name'] ?>">
+				<?= $row['Name'] ?> 
+			</a>
+		</td>
 		<td> <?= $row['Strasse'] . ' ' . $row['Hausnr'] ?> </td>
 		<td> <?= $row['Ort'] ?> </td>
 		<td> <?= $row['PLZ'] ?> </td>

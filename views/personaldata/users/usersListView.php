@@ -21,7 +21,11 @@
 
 	<?php foreach($view['user'] as $index => $row): ?>
 	<tr>
-		<td> <?= $row['username'] ?> </td>
+		<td> 
+		<a href="core/controllers/personaldata/users/usersFormController.php?User=<?= $row['username'] ?>">
+				<?= $row['username'] ?>
+			</a>
+		</td>
 		<td>
 		<?php if ($row['FK_Group'] == '1'): ?>
 			Administrator

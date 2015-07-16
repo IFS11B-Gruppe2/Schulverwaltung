@@ -17,7 +17,7 @@
 	<table class="form">
 		<tr>
 			<td> Benutzer </td>
-			<td> <input type="text" name="benutzer" /> </td>
+			<td> <input type="text" name="benutzer" value="<?= $view['form']['username'] ?>" /> </td>
 		</tr>
 
 		<tr>
@@ -32,14 +32,16 @@
 
 		<tr>
 			<td> Passwort </td>
-			<td> <input type="password" name="passwort" /> </td>
+			<td> <input type="password" name="passwort" value="<?= $view['form']['password'] ?>"/> </td>
 		</tr>
 
 		<tr>
 			<td colspan="2" class="centerText">
 				<input type="submit" class="actionButton" name="save" value="Speichern" />
 			</td>
-
+			<td colspan="2" class="centerText">
+				<input type="submit" class="actionButton" name="delete" value="Löschen" />
+			</td>
 			<td colspan="2" class="centerText">
 				<a class="actionButton" href="core/controllers/personaldata/users/usersListController.php">Zur&uuml;ck</a>
 			</td>

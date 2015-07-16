@@ -59,4 +59,57 @@ class Model_Users {
 		
 		
 	}
+	static function deleteUser($db, $userdata){
+		$mysqlResult = null;
+
+		$sql = 'DELETE FROM users WHERE username="'.$userdata['name'].'";';
+		
+		$mysqlResult = $db->query($sql);
+		
+		if ($mysqlResult === false) {
+			die("sql query failed: (" . $db->errno . ") " . $db->error);
+		}
+	}
+	static function updateUsers($db, $name, $userdata){
+		$mysqlResult = null;
+
+		$sql = "
+			UPDATE users
+			SET
+				username = '" . $userdata['username'] . "',
+				password = '" . $userdata['password'] . "',
+				FK_Group = '" . $userdata['FK_Group'] . "'
+			WHERE
+				username = '" . $name . "'
+			;
+		";
+
+		$mysqlResult = $db->query($sql);
+
+		if ($mysqlResult === false) {
+			die("sql query failed: (" . $db->errno . ") " . $db->error);
+		}
+
+		return true;
+	}
+	
+	static function getUserByName($db, $Name) {
+	$mysqlResult = null;
+		$user = null;
+		$sql = "
+			SELECT *
+			FROM users
+			WHERE username = '".$Name."'
+			";
+
+		$mysqlResult = $db->query($sql);
+		if ($mysqlResult === false) {
+			die("sql query failed: (" . $db->errno . ") " . $db->error);
+		}
+
+		$mysqlResult->data_seek(0);
+		$user = $mysqlResult->fetch_assoc();
+
+		return $user;
+	}
 }
