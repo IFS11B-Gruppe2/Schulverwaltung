@@ -2,6 +2,7 @@
 
 $root = '../../..';
 require_once($root . '/config/config.php');
+require_once($root . '/core/login.php');
 require_once($root . '/core/mysql.php');
 require_once($root . '/core/models/subcomponentsModel.php');
 
@@ -30,7 +31,7 @@ if (isset($_POST['suchen']))
 	{$searchdata['hersteller']=  $_POST['hersteller'];}
 
 
-	
+
 	$subcomponent = $subcomponent::getSearchSubcomponents($db, $searchdata);
 }else
 {
