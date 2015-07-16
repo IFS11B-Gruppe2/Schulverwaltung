@@ -1,6 +1,7 @@
 <?php
 
 class Model_Maincomponents {
+
 	static function getAllMaincomponents($db, $orderBy = 'k.PK_ID') {
 		$mysqlResult = null;
 		$maincomponents = array();
@@ -78,6 +79,29 @@ class Model_Maincomponents {
 		$maincomponent = $mysqlResult->fetch_assoc();
 
 		return $maincomponent;
+	}
+
+	static function getMaincomponentTypes($db, $orderBy = 'PK_ID') {
+		$mysqlResult = null;
+		$maincomponentTypes = array();
+
+		$sql = "
+			SELECT *
+			FROM komponentenart
+			WHERE Bezeichnung IN ('PC', 'Switch', 'Router', 'Hub', 'Accesspoint', 'Drucker')
+			ORDER BY ' . $orderBy . '
+		";
+		$mysqlResult = $db->query($sql);
+		if ($mysqlResult === false) {
+			die("sql query failed: (" . $db->errno . ") " . $db->error);
+		}
+
+		$mysqlResult->data_seek(0);
+		while ($row = $mysqlResult->fetch_assoc()) {
+			array_push($maincomponentTypes, $row);
+		}
+
+		return $maincomponentTypes;
 	}
 
 	static function createNewMaincomponent($db, $maincomponentdata){

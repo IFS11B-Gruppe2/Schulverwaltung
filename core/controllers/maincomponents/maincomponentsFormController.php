@@ -8,6 +8,8 @@ require_once($root . '/core/models/maincomponentsModel.php');
 $db = getMysqlConnection();
 $maincomponentdata = NULL;
 
+$maincomponentTypes = Model_Maincomponents::getMaincomponentTypes($db);
+
 if (!isset($_GET['Seriennummer'])) {
 	$form = array(
 		'txtDescription' => '',
@@ -52,8 +54,8 @@ if(isset($_POST['btnSave'])) {
 }
 
 $view = array(
-	'maincomponentdata' => $maincomponentdata,
 	'form' => $form,
+	'maincomponentTypes' => $maincomponentTypes,
 	'rootPath' => $root
 );
 

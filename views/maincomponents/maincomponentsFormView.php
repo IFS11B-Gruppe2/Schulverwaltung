@@ -35,8 +35,9 @@
 			<td>
 				<select name="cmbComponentType">
 					<option disabled selected></option>
-					<option value="1"> PC </option>
-					<option value="19"> Drucker </option>
+					<?php foreach ($view['maincomponentTypes'] as $index => $row): ?>
+						<option value="<?= $row['PK_ID'] ?>"> <?= $row['Bezeichnung'] ?> </option>
+					<?php endforeach; ?>
 				</select>
 			</td>
 		</tr>
