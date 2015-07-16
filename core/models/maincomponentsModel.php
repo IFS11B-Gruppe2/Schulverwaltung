@@ -61,7 +61,7 @@ class Model_Maincomponents {
 		$mysqlResult = null;
 		$maincomponent = null;
 		$sql = "
-			SELECT kart.Bezeichnung as Komponentenart, k.Seriennummer, k.Beschreibung, k.Hersteller, k.Einkaufsdatum, k.Gewaehrleistungsdauer, k.Einkaufsdatum + INTERVAL k.Gewaehrleistungsdauer YEAR as Ablaufdatum, k.Notiz, k.FK_Lieferant, k.FK_Raum, l.Name
+			SELECT k.FK_Komponentenart, kart.Bezeichnung as Komponentenart, k.Seriennummer, k.Beschreibung, k.Hersteller, k.Einkaufsdatum, k.Gewaehrleistungsdauer, k.Einkaufsdatum + INTERVAL k.Gewaehrleistungsdauer YEAR as Ablaufdatum, k.Notiz, k.FK_Lieferant, k.FK_Raum, l.Name
 			FROM komponente as k, komponentenart as kart, lieferant as l
 			WHERE k.FK_Lieferant = l.PK_ID
 			AND k.FK_Komponentenart = kart.PK_ID

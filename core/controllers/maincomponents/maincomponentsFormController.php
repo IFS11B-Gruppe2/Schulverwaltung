@@ -4,11 +4,13 @@ $root = '../../..';
 require_once($root . '/config/config.php');
 require_once($root . '/core/mysql.php');
 require_once($root . '/core/models/maincomponentsModel.php');
+require_once($root . '/core/models/roomsModel.php');
 
 $db = getMysqlConnection();
 $maincomponentdata = NULL;
 
 $maincomponentTypes = Model_Maincomponents::getMaincomponentTypes($db);
+$rooms = Model_Rooms::getAllRooms($db);
 
 if (!isset($_GET['Seriennummer'])) {
 	$form = array(
@@ -29,8 +31,8 @@ if (!isset($_GET['Seriennummer'])) {
 		'txtDescription' => $maincomponentdata['Beschreibung'],
 		'txtSerialNumber' => $maincomponentdata['Seriennummer'],
 		'txtWarrantyYears' => $maincomponentdata['Gewaehrleistungsdauer'],
-		'cmbComponentType' => $maincomponentdata['Komponentenart'],
-		'cmbRaumNumber' => $maincomponentdata['FK_Raum'],
+		'cmbComponentType' => $maincomponentdata['FK_Komponentenart'],
+		'cmbRoomNumber' => $maincomponentdata['FK_Raum'],
 		'txtBuyDate' => $maincomponentdata['Einkaufsdatum'],
 		'txtManufacturer' => $maincomponentdata['Hersteller'],
 		'cmbSupplierID' => $maincomponentdata['FK_Lieferant'],
@@ -56,6 +58,7 @@ if(isset($_POST['btnSave'])) {
 $view = array(
 	'form' => $form,
 	'maincomponentTypes' => $maincomponentTypes,
+	'rooms' => $rooms,
 	'rootPath' => $root
 );
 

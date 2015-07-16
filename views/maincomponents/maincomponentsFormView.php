@@ -52,13 +52,19 @@
 			<td> Raum </td>
 			<td>
 				<select name="cmbRoomNumber">
-					<option disabled selected></option>
-					<option value="0"> Ausgemustert </option>
-					<option value="1"> R001 </option>
-					<option value="2"> R002 </option>
-					<option value="112"> R112 </option>
-					<option value="116"> R116 </option>
-					<option value="301"> R301 </option>
+					<option>Raum wählen</option>
+					<?php foreach ($view['rooms'] as $index => $row): ?>
+						<?php
+							if ($view['form']['cmbRoomNumber'] == $row['PK_Raumnr']):
+								$selected = 'selected';
+							else:
+								$selected = '';
+							endif;
+						?>
+						<option value="<?= $row['PK_Raumnr'] ?>" <?= $selected ?>>
+							<?= 'R' . str_pad($row['PK_Raumnr'], 3, '0', STR_PAD_LEFT) ?>
+						</option>
+					<?php endforeach; ?>
 				</select>
 			</td>
 		</tr>
