@@ -84,7 +84,14 @@
 			<td>
 				<select name="cmbSupplierID">
 					<?php foreach ($view['suppliers'] as $index => $row): ?>
-						<option value="<?= $row['PK_ID'] ?>">
+						<?php
+							if ($view['form']['cmbSupplierID'] == $row['PK_ID']):
+								$selected = 'selected';
+							else:
+								$selected = '';
+							endif;
+						?>
+						<option value="<?= $row['PK_ID'] ?>" <?= $selected ?>>
 							<?= $row['Name'] ?>
 						</option>
 					<?php endforeach; ?>
