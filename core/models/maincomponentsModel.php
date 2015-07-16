@@ -2,6 +2,34 @@
 
 class Model_Maincomponents {
 
+	static function createNewMaincomponent($db, $maincomponentdata){
+		$mysqlResult = null;
+
+		$sql = "
+			INSERT INTO komponente (Beschreibung, Hersteller, Notiz, Einkaufsdatum, Gewaehrleistungsdauer, FK_Lieferant, FK_Komponentenart, FK_Raum, Seriennummer)
+			VALUES (
+				'" . $maincomponentdata['txtDescription'] . "',
+				'" . $maincomponentdata['txtManufacturer'] . "',
+				'" . $maincomponentdata['txtNote'] . "',
+				'" . $maincomponentdata['txtBuyDate'] . "',
+				" . $maincomponentdata['txtWarrantyYears'] . ",
+				'" . $maincomponentdata['cmbSupplierID'] . "',
+				'" . $maincomponentdata['cmbComponentType'] . "',
+				'" . $maincomponentdata['cmbRoomNumber'] . "',
+				'" . $maincomponentdata['txtSerialNumber'] . "'
+			)
+			;
+		";
+
+		$mysqlResult = $db->query($sql);
+
+		if ($mysqlResult === false) {
+			die("sql query failed: (" . $db->errno . ") " . $db->error);
+		}
+
+		return true;
+	}
+
 	static function getAllMaincomponents($db, $orderBy = 'k.PK_ID') {
 		$mysqlResult = null;
 		$maincomponents = array();
@@ -104,13 +132,24 @@ class Model_Maincomponents {
 		return $maincomponentTypes;
 	}
 
-	static function createNewMaincomponent($db, $maincomponentdata){
+	static function updateMaincomponent($db, $serialNumber, $maincomponentdata){
 		$mysqlResult = null;
 
 		$sql = "
-			INSERT INTO komponente (Beschreibung, Hersteller, Notiz, Einkaufsdatum, Gewaehrleistungsdauer, FK_Lieferant, FK_Komponentenart, FK_Raum, Seriennummer)
-			VALUES ('".$maincomponentdata['Beschreibung']."','".$maincomponentdata['Hersteller']."','".$maincomponentdata['Notiz']."','".$maincomponentdata['Einkaufsdatum']."',".$maincomponentdata['Gewaehrleistungsdauer'].",'".$maincomponentdata['FK_Lieferant']."','".$maincomponentdata['FK_Komponentenart']."', '".$maincomponentdata['FK_Raum']."','".$maincomponentdata['Seriennummer']."')
-			";
+			UPDATE komponente
+			SET
+				Beschreibung = '" . $maincomponentdata['txtDescription'] . "',
+				Hersteller = '" . $maincomponentdata['txtManufacturer'] . "',
+				Notiz = '" . $maincomponentdata['txtNote'] . "',
+				Einkaufsdatum = '" . $maincomponentdata['txtBuyDate'] . "',
+				Gewaehrleistungsdauer = ".$maincomponentdata['txtWarrantyYears'].",
+				FK_Lieferant = '" . $maincomponentdata['cmbSupplierID'] . "',
+				FK_Komponentenart = '" . $maincomponentdata['cmbComponentType'] . "',
+				FK_Raum = " . $maincomponentdata['cmbRoomNumber'] . "
+			WHERE
+				Seriennummer = '" . $maincomponentdata['txtSerialNumber'] . "'
+			;
+		";
 
 		$mysqlResult = $db->query($sql);
 
@@ -120,5 +159,4 @@ class Model_Maincomponents {
 
 		return true;
 	}
-
 }

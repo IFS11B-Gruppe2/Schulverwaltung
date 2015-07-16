@@ -20,7 +20,7 @@ if (!isset($_GET['Seriennummer'])) {
 		'txtSerialNumber' => '',
 		'txtWarrantyYears' => '',
 		'cmbComponentType' => '',
-		'cmbRaumNumber' => '',
+		'cmbRoomNumber' => '',
 		'txtBuyDate' => '',
 		'txtManufacturer' => '',
 		'cmbSupplierID' => '',
@@ -43,18 +43,21 @@ if (!isset($_GET['Seriennummer'])) {
 }
 
 if(isset($_POST['btnSave'])) {
-
 	$form['txtDescription'] = $_POST['txtDescription'];
 	$form['txtSerialNumber'] = $_POST['txtSerialNumber'];
 	$form['txtWarrantyYears'] = $_POST['txtWarrantyYears'];
 	$form['cmbComponentType'] = $_POST['cmbComponentType'];
-	$form['cmbRaumNumber'] = $_POST['cmbRaumNumber'];
+	$form['cmbRoomNumber'] = $_POST['cmbRoomNumber'];
 	$form['txtBuyDate'] = $_POST['txtBuyDate'];
 	$form['txtManufacturer'] = $_POST['txtManufacturer'];
 	$form['cmbSupplierID'] = $_POST['cmbSupplierID'];
 	$form['txtNote'] = $_POST['txtNote'];
 
-	Model_Maincomponents::createNewMaincomponent($db, $maincomponentdata);
+	if (!isset($_GET['Seriennummer'])) {
+		Model_Maincomponents::createNewMaincomponent($db, $form);
+	} else {
+		Model_Maincomponents::updateMaincomponent($db, $_GET['Seriennummer'], $form);
+	}
 }
 
 $view = array(
