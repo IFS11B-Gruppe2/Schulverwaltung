@@ -19,7 +19,7 @@ Create Table lieferant
 Create Table komponente
 (PK_ID int AUTO_INCREMENT, Beschreibung text, Hersteller text, Notiz text, Einkaufsdatum date, Gewaehrleistungsdauer int, FK_Lieferant int, FK_Komponentenart int, FK_Raum int, Seriennummer text, constraint PK_Komponenten primary key (PK_ID));
 
-Create Table KomponenteZuVorgang
+Create Table komponentezuvorgang
 (FK_Hauptkomponente int, FK_Teilkomponente int, FK_Vorgang int, Datum date);
 
 Create Table vorgangsart
