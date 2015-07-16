@@ -34,9 +34,15 @@
 			<td> Komponentenart </td>
 			<td>
 				<select name="cmbComponentType">
-					<option disabled selected></option>
 					<?php foreach ($view['maincomponentTypes'] as $index => $row): ?>
-						<option value="<?= $row['PK_ID'] ?>"> <?= $row['Bezeichnung'] ?> </option>
+						<?php
+							if ($view['form']['cmbComponentType'] == $row['PK_ID']):
+								$selected = 'selected';
+							else:
+								$selected = '';
+							endif;
+						?>
+						<option value="<?= $row['PK_ID'] ?>" <?= $selected ?>> <?= $row['Bezeichnung'] ?> </option>
 					<?php endforeach; ?>
 				</select>
 			</td>
